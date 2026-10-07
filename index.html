@@ -3,165 +3,185 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Annie Huynh is a software engineer focused on frontend and full-stack development with React, TypeScript, Java, and Spring Boot." />
     <title>Annie Huynh | Portfolio</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Bootstrap Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
-    <!-- Favicon (simple SVG data URI) -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='60' font-size='52' text-anchor='middle' fill='white' font-family='Poppins,Arial'%3EA%3C/text%3E%3C/svg%3E">
-
-    <!-- Bootstrap CSS (CDN) -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='63' font-size='52' text-anchor='middle' fill='white' font-family='Poppins,Arial'%3EA%3C/text%3E%3C/svg%3E">
 
     <style>
       :root {
         --ink: #0b0b0c;
         --paper: #ffffff;
         --muted: #6b7280;
-        --border: rgba(0, 0, 0, 0.12);
-        --accent: #7c3aed; /* violet accent */
-        --accent-2: #06b6d4; /* teal accent */
+        --border: rgba(0, 0, 0, 0.10);
+        --accent: #7c3aed;
+        --accent-2: #06b6d4;
       }
+
+      html { scroll-behavior: smooth; }
 
       body {
         background: var(--paper);
         color: var(--ink);
-        font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-        -webkit-font-smoothing:antialiased;
-        -moz-osx-font-smoothing:grayscale;
-        font-size:16px;
-        line-height:1.6;
-        color-scheme: light;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
       }
 
-      /* smooth scrolling */
-      html { scroll-behavior: smooth; }
-
-      /* avoid horizontal overflow (decorative elements may extend outside viewport) */
-      html, body { overflow-x: hidden; }
-
-      /* headings */
-      h1,h2,h3,h4{ font-family: Poppins, Inter, system-ui; margin-top:0 }
-      .display-4{ font-family: Poppins, Inter, system-ui; letter-spacing: -0.02em; font-weight:700; font-size:clamp(2rem,4.5vw,3.4rem); line-height:1.05 }
-      h2{ font-size: clamp(1.25rem,2.2vw,1.8rem); }
-      h3{ font-size: clamp(1rem,1.6vw,1.1rem); }
-
-      .lead{ font-size: clamp(1rem,1.8vw,1.05rem); line-height:1.6 }
-
-      /* glass cards + subtle borders */
-      .card-clean{
-        background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.72));
-        backdrop-filter: blur(6px) saturate(1.05);
-        border: 1px solid rgba(11,11,12,0.06);
+      h1, h2, h3, h4, .navbar-brand {
+        font-family: Poppins, Inter, sans-serif;
       }
 
-      /* gradient buttons */
-      .btn-gradient{
-        color: #fff;
-        background: linear-gradient(90deg,var(--accent),var(--accent-2));
-        border: 0;
-        box-shadow: 0 6px 18px rgba(124,58,237,0.12);
-      }
-      .btn-gradient:hover{ transform: translateY(-3px); box-shadow:0 14px 30px rgba(124,58,237,0.12); }
-
-      /* badge gradients */
-      .badge-gradient{
-        background: linear-gradient(90deg, rgba(124,58,237,0.12), rgba(6,182,212,0.08));
-        color: var(--ink);
-        border-radius: 999px;
-        padding: .35rem .6rem;
-        font-weight:600;
+      h2 {
+        font-size: clamp(1.4rem, 2.4vw, 1.9rem);
       }
 
-      /* microinteraction for links */
-      a.nav-link{ transition: opacity 160ms ease, transform 160ms ease }
-      a.nav-link:hover{ transform: translateY(-2px); opacity:1 }
+      .muted { color: var(--muted); }
 
-      /* back-to-top (neutral dark style) */
-      #backToTop{
-        position:fixed;right:20px;bottom:24px;width:44px;height:44px;border-radius:12px;border:0;background:rgba(11,11,12,0.78);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(11,11,12,0.22);opacity:0;transform:translateY(8px);transition:opacity 240ms ease, transform 240ms ease, background 180ms ease;z-index:9999}
-      #backToTop.show{opacity:1;transform:none}
-      #backToTop:hover{background:rgba(11,11,12,0.92);transform:translateY(-3px)}
+      .section { padding: 5rem 0; }
 
-      .section {
-        padding: 5rem 0;
+      @media (max-width: 768px) {
+        .section { padding: 3.5rem 0; }
       }
 
-      /* slightly tighter sections on small screens */
-      @media (max-width: 768px){
-        .section{padding:3rem 0}
+      .navbar {
+        backdrop-filter: blur(12px);
+      }
+
+      .nav-link {
+        opacity: .85;
+        transition: opacity .15s ease, transform .15s ease;
+      }
+
+      .nav-link:hover {
+        opacity: 1;
+        transform: translateY(-1px);
       }
 
       .hero {
-        color: var(--paper);
-        padding: 6rem 0 5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        background: linear-gradient(120deg, rgba(11,11,12,1) 0%, rgba(20,20,24,0.95) 48%, rgba(124,58,237,0.06) 100%);
-        position:relative;
-        overflow:visible;
+        position: relative;
+        overflow: hidden;
+        color: #fff;
+        padding: 6.5rem 0 5.5rem;
+        background:
+          radial-gradient(circle at 85% 20%, rgba(124, 58, 237, .18), transparent 30%),
+          radial-gradient(circle at 95% 80%, rgba(6, 182, 212, .10), transparent 28%),
+          linear-gradient(120deg, #0b0b0c 0%, #16161b 55%, #101014 100%);
       }
 
-      /* decorative blur on the hero */
-      .hero::after{
-        content:'';
-        position:absolute;
-        right:-8%;
-        top:-6%;
-        width:44rem;
-        height:44rem;
-        background: radial-gradient(circle at 30% 30%, rgba(124,58,237,0.12), transparent 30%), radial-gradient(circle at 70% 70%, rgba(6,182,212,0.08), transparent 35%);
-        filter: blur(60px);
-        z-index:0;
-        pointer-events:none;
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 30rem;
+        height: 30rem;
+        right: -12rem;
+        top: -10rem;
+        border-radius: 50%;
+        background: rgba(124, 58, 237, .10);
+        filter: blur(70px);
+        pointer-events: none;
       }
 
-      /* responsive hero decor and profile */
-      @media (max-width: 992px){
-        .hero{padding:3.5rem 0 2.5rem}
-        .hero::after{width:28rem;height:28rem;right:-20%;top:-10%;filter:blur(40px)}
-        .profile-img{width:88px;height:88px;border-width:4px}
-        iframe{height:320px}
+      .hero-content {
+        position: relative;
+        z-index: 1;
       }
 
-      .muted {
-        color: var(--muted);
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        padding: .45rem .75rem;
+        border: 1px solid rgba(255,255,255,.18);
+        border-radius: 999px;
+        background: rgba(255,255,255,.04);
+        font-size: .9rem;
+        color: rgba(255,255,255,.85);
+      }
+
+      .display-title {
+        font-family: Poppins, Inter, sans-serif;
+        font-size: clamp(2.4rem, 6vw, 4.6rem);
+        line-height: 1.02;
+        letter-spacing: -.045em;
+        font-weight: 700;
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, #fff, #d8d0ff 55%, #b8f2f7);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-card {
+        position: relative;
+        z-index: 2;
+        padding: 1.5rem;
+        border: 1px solid rgba(255,255,255,.10);
+        border-radius: 1.25rem;
+        background: rgba(0,0,0,.42);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 60px rgba(0,0,0,.20);
+      }
+
+      .profile-img {
+        width: 86px;
+        height: 86px;
+        object-fit: cover;
+        border-radius: 18px;
+        border: 4px solid rgba(255,255,255,.10);
+      }
+
+      .btn-gradient {
+        color: #fff;
+        border: 0;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        box-shadow: 0 8px 24px rgba(124,58,237,.18);
+        transition: transform .18s ease, box-shadow .18s ease;
+      }
+
+      .btn-gradient:hover {
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(124,58,237,.24);
+      }
+
+      .pill { border-radius: 999px !important; }
+
+      .card-clean {
+        height: 100%;
+        border: 1px solid var(--border);
+        border-radius: 1.25rem;
+        background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+        backdrop-filter: blur(6px) saturate(1.05);
+        transition: transform .2s ease, box-shadow .2s ease;
+      }
+
+      .card-clean:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 36px rgba(11,11,12,.08);
       }
 
       .soft-border {
-        border: 1px solid var(--border) !important;
-      }
-
-      .card-clean {
-        border-radius: 1.25rem;
-        border: 1px solid var(--border);
-        box-shadow: none;
-      }
-
-      .card-clean:hover{
-        transform: translateY(-8px);
-        transition: transform 220ms ease, box-shadow 220ms ease;
-        box-shadow: 0 10px 30px rgba(11,11,12,0.08);
-      }
-
-      .pill {
-        border-radius: 999px !important;
+        border: 1px solid rgba(255, 255, 255, 0.18);
       }
 
       .btn-ink {
         background: var(--ink);
-        color: var(--paper);
+        color: #fff;
         border: 1px solid var(--ink);
       }
+
       .btn-ink:hover {
         background: #111113;
-        color: var(--paper);
-        border-color: #111113;
+        color: #fff;
       }
 
       .btn-outline-ink {
@@ -169,51 +189,94 @@
         color: var(--ink);
         background: transparent;
       }
+
       .btn-outline-ink:hover {
         background: var(--ink);
-        color: var(--paper);
+        color: #fff;
       }
 
-      .nav-link {
-        opacity: 0.85;
+      .tech-badge {
+        display: inline-block;
+        padding: .32rem .6rem;
+        border-radius: 999px;
+        background: linear-gradient(90deg, rgba(124,58,237,.10), rgba(6,182,212,.08));
+        font-size: .82rem;
+        font-weight: 600;
       }
-      .nav-link:hover {
-        opacity: 1;
+
+      .project-link {
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 600;
       }
+
+      .project-link:hover { color: var(--accent); }
 
       .divider {
         border-top: 1px solid var(--border);
       }
 
-      /* reveal animation */
-      .reveal{opacity:0;transform:translateY(10px);transition:opacity 520ms ease, transform 520ms ease}
-      .reveal.in-view{opacity:1;transform:none}
-
-      /* profile */
-      .profile-img{width:120px;height:120px;object-fit:cover;border-radius:16px;border:6px solid rgba(255,255,255,0.06);box-shadow:0 8px 30px rgba(11,11,12,0.18)}
-
-      /* dark glass card for hero quick-info to improve contrast */
-      .card-hero{
-        background: linear-gradient(180deg, rgba(0,0,0,0.62), rgba(0,0,0,0.46));
-        color: #fff;
-        border: 1px solid rgba(255,255,255,0.08);
-        backdrop-filter: blur(6px) saturate(1.05);
+      .timeline-dot {
+        width: 10px;
+        height: 10px;
+        flex: 0 0 10px;
+        margin-top: .55rem;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
       }
 
-      .muted{color:var(--muted)}
+      .skill-group h3 {
+        font-size: .78rem;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
 
-      a.btn.pill {font-family: Poppins, Inter, sans-serif}
+      .reveal {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity .5s ease, transform .5s ease;
+      }
+
+      .reveal.in-view {
+        opacity: 1;
+        transform: none;
+      }
+
+      #backToTop {
+        position: fixed;
+        right: 20px;
+        bottom: 24px;
+        width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: 12px;
+        background: rgba(11,11,12,.82);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: translateY(8px);
+        pointer-events: none;
+        transition: opacity .2s ease, transform .2s ease;
+        z-index: 9999;
+      }
+
+      #backToTop.show {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+      }
 
       :focus-visible {
-        outline: 3px solid rgba(0, 0, 0, 0.25);
-        outline-offset: 2px;
-        border-radius: 8px;
+        outline: 3px solid rgba(124,58,237,.35);
+        outline-offset: 3px;
       }
     </style>
   </head>
 
   <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
       <div class="container py-2">
         <a class="navbar-brand fw-semibold" href="#top">Annie Huynh</a>
@@ -225,355 +288,428 @@
           data-bs-target="#nav"
           aria-controls="nav"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="nav">
-          <ul class="navbar-nav ms-auto gap-lg-2">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
             <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
             <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
             <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
             <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="btn btn-sm btn-light pill ms-lg-2" href="#contact">Contact</a></li>
             <li class="nav-item">
-              <a class="btn btn-sm btn-light pill ms-lg-2" href="#contact">Contact</a>
+              <a class="nav-link text-white" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+              </a>
             </li>
-            <li class="nav-item d-none d-lg-flex align-items-center ms-2">
-              <a class="nav-link text-white" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noreferrer"><i class="bi bi-linkedin"></i></a>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="https://github.com/annieh00" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="bi bi-github"></i>
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <!-- Hero -->
-    <header id="top" class="hero reveal">
-      <div class="container">
-        <div class="row align-items-center gy-4">
+    <header id="top" class="hero">
+      <div class="container hero-content">
+        <div class="row align-items-center gy-5">
           <div class="col-lg-8">
-            <div
-              class="d-inline-flex align-items-center gap-2 px-3 py-2 pill soft-border border-white border-opacity-25 mb-4"
-            >
-              <span class="small">B.S. Software Engineering • Spring 2026</span>
-              <span class="vr opacity-50"></span>
-              <!-- Add your resume file path when you have one -->
-                <a class="link-light text-decoration-none small d-inline-flex align-items-center" href="./resume.pdf" target="_blank" rel="noopener noreferrer" download aria-label="Download resume">
-                  Resume
-                  <i class="bi bi-download ms-2" aria-hidden="true"></i>
-                </a>
+            <div class="eyebrow mb-4">
+              <span>Software Engineering Graduate</span>
+              <span class="opacity-50">•</span>
+              <span>May 2026</span>
             </div>
 
-            <h1 class="display-4 fw-bold mb-3">Building clean, reliable software.</h1>
-            <p class="lead text-white-50 mb-4" style="max-width: 56ch;">
-              I’m <span class="text-white fw-semibold">Annie Huynh</span>, a software engineering student at
-              Iowa State (minor in Cybersecurity). I’ve shipped production features with
-              <span class="text-white">React + TypeScript</span> and built projects across mobile, backend,
-              and data/ML.
+            <h1 class="display-title mb-4">
+              Building thoughtful, user-focused software.
+            </h1>
+
+            <p class="lead text-white-50 mb-4" style="max-width: 58ch;">
+              I'm <span class="text-white fw-semibold">Annie Huynh</span>, a software engineer
+              focused on <span class="text-white">frontend and full-stack development</span>.
+              I enjoy building intuitive interfaces with React and TypeScript and connecting them
+              to reliable backend systems with Java and Spring Boot.
             </p>
 
             <div class="d-flex flex-wrap gap-2">
-                <a class="btn btn-light btn-lg pill px-4" href="#projects">View Projects</a>
-              <a class="btn btn-outline-light btn-lg pill px-4" href="#contact">Contact</a>
-              <a class="btn btn-outline-light btn-lg pill px-4" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noreferrer">LinkedIn</a>
-              <!-- GitHub intentionally omitted -->
+              <a class="btn btn-light btn-lg pill px-4" href="#projects">View Projects</a>
+              <a class="btn btn-gradient btn-lg pill px-4" href="./resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+              <a class="btn btn-outline-light btn-lg pill px-4" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
 
           <div class="col-lg-4">
-            <div class="p-4 rounded-4 soft-border border-white border-opacity-25 card-hero" style="position:relative;z-index:2">
-              <div class="d-flex align-items-center gap-3 mb-3">
-                <img class="profile-img" src="./pictures/IMG_5997.jpeg" alt="Profile image">
+            <div class="hero-card">
+              <div class="d-flex align-items-center gap-3 mb-4">
+                <img class="profile-img" src="./pictures/IMG_5997.jpeg" alt="Annie Huynh">
                 <div>
-                  <div class="fw-semibold text-white">Annie Huynh</div>
-                  <div class="small text-white-50">Software Engineering • Iowa State</div>
+                  <div class="fw-semibold">Annie Huynh</div>
+                  <div class="small text-white-50">Frontend & Full-Stack Software Engineer</div>
                 </div>
               </div>
-              <h2 class="h6 text-uppercase text-white mb-3">Quick Info</h2>
-              <ul class="list-unstyled mb-0 text-white">
-                <li class="mb-2"><span class="fw-semibold">School:</span> Iowa State University</li>
-                <li class="mb-2"><span class="fw-semibold">GPA:</span> 3.48</li>
-                <li class="mb-2"><span class="fw-semibold">Email:</span> anniehuynh65@gmail.com</li>
-                <li class="mb-0"><span class="fw-semibold">Focus: <br></span> Full-stack <br> Data <br> Cyber</li>
-              </ul>
+
+              <div class="small text-uppercase text-white-50 mb-2">Currently seeking</div>
+              <div class="fw-semibold mb-4">Full-time software engineering opportunities</div>
+
+              <div class="small text-uppercase text-white-50 mb-2">Primary focus</div>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">TypeScript</span>
+                <span class="tech-badge">Java</span>
+                <span class="tech-badge">Spring Boot</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Projects -->
-    <section id="projects" class="section reveal">
-      <div class="container">
-        <div class="row align-items-end mb-4">
-          <div class="col-lg-8">
-            <h2 class="fw-bold mb-2">Selected Projects</h2>
+    <main>
+      <section id="projects" class="section reveal">
+        <div class="container">
+          <div class="mb-4">
+            <h2 class="fw-bold mb-2">Featured Projects</h2>
             <p class="muted mb-0" style="max-width: 68ch;">
-              Projects spanning mobile + backend systems, real-time apps, and ML pipelines.
+              A few projects that show how I approach user-facing products, application architecture,
+              and full-stack development.
             </p>
           </div>
-        </div>
 
-        <div class="row g-4">
-          <!-- CourseFlow -->
-          <div class="col-md-6 col-lg-4">
-            <div class="card card-clean h-100">
-              <div class="card-body p-4">
-                <div class="d-flex justify-content-between align-items-start">
-                  <h3 class="h5 fw-semibold mb-2">CourseFlow</h3>
-                  <span class="badge-gradient">Aug 2025–Present</span>
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <article class="card-clean p-4">
+                <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+                  <div>
+                    <div class="small text-uppercase muted mb-1">Senior Design Project</div>
+                    <h3 class="h4 fw-semibold mb-0">CourseFlow</h3>
+                  </div>
+                  <span class="tech-badge">2025–2026</span>
                 </div>
-                <p class="muted mb-3">
-                  Cross-platform degree planning app with interactive prerequisite visualization and optimized scheduling.
+
+                <p class="muted">
+                  A degree-planning application designed to make course planning more intuitive for
+                  Iowa State students. The app combines a React Native frontend with a Spring Boot
+                  backend and PostgreSQL database.
+                </p>
+
+                <p class="muted">
+                  Built features for prerequisite tracking, course planning, scheduling, course
+                  information, and authenticated student workflows.
                 </p>
 
                 <div class="d-flex flex-wrap gap-2 mb-4">
-                  <span class="badge-gradient">React Native</span>
-                  <span class="badge-gradient">Spring Boot</span>
-                  <span class="badge-gradient">PostgreSQL</span>
-                  <span class="badge-gradient">Neo4j</span>
+                  <span class="tech-badge">React Native</span>
+                  <span class="tech-badge">Expo</span>
+                  <span class="tech-badge">TypeScript</span>
+                  <span class="tech-badge">Java</span>
+                  <span class="tech-badge">Spring Boot</span>
+                  <span class="tech-badge">PostgreSQL</span>
+                  <span class="tech-badge">Spring Security</span>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- CyMarket -->
-          <div class="col-md-6 col-lg-4">
-            <div class="card card-clean h-100 reveal">
-              <div class="card-body p-4">
-                <div class="d-flex justify-content-between align-items-start">
-                  <h3 class="h5 fw-semibold mb-2">CyMarket</h3>
-                  <span class="badge-gradient">Jan–May 2024</span>
+                <a class="project-link" href="https://github.com/annieh00/courseflow" target="_blank" rel="noopener noreferrer">
+                  View on GitHub <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </article>
+            </div>
+
+            <div class="col-lg-6">
+              <article class="card-clean p-4">
+                <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+                  <div>
+                    <div class="small text-uppercase muted mb-1">Android Application</div>
+                    <h3 class="h4 fw-semibold mb-0">CyMarket</h3>
+                  </div>
+                  <span class="tech-badge">2024</span>
                 </div>
-                <p class="muted mb-3">
-                  Android marketplace app with real-time listings, auctions, and user interactions.
-                  Improved task completion speed by ~25% via UI + backend integration.
+
+                <p class="muted">
+                  A student-focused marketplace application for buying and selling items within a
+                  college community, with listings, search, item details, profiles, messaging,
+                  auctions, and image functionality.
+                </p>
+
+                <p class="muted">
+                  My work focused primarily on the Android frontend, user-facing screens, REST API
+                  integration, marketplace workflows, image functionality, and testing/debugging.
                 </p>
 
                 <div class="d-flex flex-wrap gap-2 mb-4">
-                  <span class="badge-gradient">Java</span>
-                  <span class="badge-gradient">Android Studio</span>
-                  <span class="badge-gradient">REST APIs</span>
-                  <span class="badge-gradient">WebSockets</span>
+                  <span class="tech-badge">Java</span>
+                  <span class="tech-badge">Android</span>
+                  <span class="tech-badge">Spring Boot</span>
+                  <span class="tech-badge">REST APIs</span>
+                  <span class="tech-badge">WebSockets</span>
+                  <span class="tech-badge">MySQL</span>
+                </div>
+
+                <a class="project-link" href="https://github.com/annieh00/cymarket" target="_blank" rel="noopener noreferrer">
+                  View on GitHub <i class="bi bi-arrow-up-right"></i>
+                </a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section bg-light reveal">
+        <div class="container">
+          <div class="mb-4">
+            <h2 class="fw-bold mb-2">Experience</h2>
+            <p class="muted mb-0">Professional and technical experience that shaped how I build software.</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-7">
+              <article class="card-clean p-4 bg-white">
+                <div class="d-flex gap-3">
+                  <div class="timeline-dot"></div>
+                  <div class="flex-grow-1">
+                    <div class="d-flex justify-content-between flex-wrap gap-2">
+                      <div>
+                        <h3 class="h5 fw-semibold mb-1">Software Engineering Intern</h3>
+                        <div class="muted">Principal Financial Group</div>
+                      </div>
+                      <span class="tech-badge align-self-start">May–Aug 2025</span>
+                    </div>
+
+                    <div class="divider my-3"></div>
+
+                    <ul class="muted mb-0">
+                      <li>Developed production React and TypeScript features for the Case Management team.</li>
+                      <li>Integrated REST APIs to connect frontend workflows with backend services.</li>
+                      <li>Worked with AWS deployment workflows and contributed to production releases.</li>
+                      <li>Collaborated with engineers across U.S. and India-based teams in an Agile/Scrum environment.</li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-lg-5">
+              <article class="card-clean p-4 bg-white h-100">
+                <div class="d-flex justify-content-between flex-wrap gap-2">
+                  <div>
+                    <h3 class="h5 fw-semibold mb-1">STEM Scholars Tutor</h3>
+                    <div class="muted">Iowa State University</div>
+                  </div>
+                  <span class="tech-badge align-self-start">2024–2026</span>
+                </div>
+
+                <div class="divider my-3"></div>
+
+                <p class="muted mb-0">
+                  Tutored Java and object-oriented programming, including debugging, data structures,
+                  and core programming concepts.
+                </p>
+              </article>
+            </div>
+
+            <div class="col-lg-5">
+              <article class="card-clean p-4 bg-white h-100">
+                <div class="d-flex justify-content-between flex-wrap gap-2">
+                  <div>
+                    <h3 class="h5 fw-semibold mb-1">Undergraduate Researcher</h3>
+                    <div class="muted">Iowa State University</div>
+                  </div>
+                  <span class="tech-badge align-self-start">2023</span>
+                </div>
+
+                <div class="divider my-3"></div>
+
+                <p class="muted mb-0">
+                  Worked on converting MATLAB workflows to Python for cloud-based data processing
+                  and helped lead Python workshops.
+                </p>
+              </article>
+            </div>
+
+            <div class="col-lg-7">
+              <article class="card-clean p-4 bg-white h-100">
+                <div class="d-flex justify-content-between flex-wrap gap-2">
+                  <div>
+                    <h3 class="h5 fw-semibold mb-1">Cell Phone Repair Technician</h3>
+                    <div class="muted">CPR Cell Phone Repair</div>
+                  </div>
+                  <span class="tech-badge align-self-start">Aug 2026–Present</span>
+                </div>
+
+                <div class="divider my-3"></div>
+
+                <p class="muted mb-0">
+                  Diagnose and repair consumer devices while troubleshooting hardware and software
+                  issues and communicating technical problems clearly to customers.
+                </p>
+              </article>
+            </div>
+
+            <div class="col-lg-7">
+              <article class="card-clean p-4 bg-white h-100">
+                <div class="d-flex justify-content-between flex-wrap gap-2">
+                  <div>
+                    <h3 class="h5 fw-semibold mb-1">Surplus Technician</h3>
+                    <div class="muted">Iowa State University</div>
+                  </div>
+                  <span class="tech-badge align-self-start">Dec 2025–May 2026</span>
+                </div>
+
+                <div class="divider my-3"></div>
+
+                <p class="muted mb-0">
+                  Tested and prepared computers and monitors for surplus, installed and updated
+                  Ubuntu systems, and handled basic hardware and software troubleshooting.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section reveal">
+        <div class="container">
+          <div class="mb-4">
+            <h2 class="fw-bold mb-2">Skills</h2>
+            <p class="muted mb-0">The technologies I use most often, organized around the kind of work I want to do.</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+              <div class="card-clean p-4">
+                <div class="skill-group">
+                  <h3>Frontend</h3>
+                  <p class="mb-0">React, React Native, TypeScript, JavaScript, HTML, CSS, Expo</p>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Layoffs Model -->
-          <div class="col-md-6 col-lg-4">
-            <div class="card card-clean h-100 reveal">
-              <div class="card-body p-4">
-                <div class="d-flex justify-content-between align-items-start">
-                  <h3 class="h5 fw-semibold mb-2">Tech Layoffs Prediction</h3>
-                  <span class="badge-gradient">Jun–Jul 2023</span>
+            <div class="col-md-6 col-lg-3">
+              <div class="card-clean p-4">
+                <div class="skill-group">
+                  <h3>Backend</h3>
+                  <p class="mb-0">Java, Spring Boot, Spring Security, REST APIs, Node.js</p>
                 </div>
-                <p class="muted mb-3">
-                  Built ML pipelines predicting layoff risk for 1,000+ U.S. tech companies.
-                  Trained Logistic Regression + XGBoost achieving 80%+ accuracy.
-                </p>
+              </div>
+            </div>
 
-                <div class="d-flex flex-wrap gap-2 mb-4">
-                  <span class="badge-gradient">Python</span>
-                  <span class="badge-gradient">pandas</span>
-                  <span class="badge-gradient">NumPy</span>
-                  <span class="badge-gradient">Matplotlib</span>
+            <div class="col-md-6 col-lg-3">
+              <div class="card-clean p-4">
+                <div class="skill-group">
+                  <h3>Data & Databases</h3>
+                  <p class="mb-0">PostgreSQL, MySQL, MongoDB, SQL, Python, pandas, NumPy</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+              <div class="card-clean p-4">
+                <div class="skill-group">
+                  <h3>Tools & Platforms</h3>
+                  <p class="mb-0">Git, GitHub, Linux, Ubuntu, AWS, JUnit, Android Studio, VS Code</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="divider my-5"></div>
-
-        <p class="muted mb-0">
-        </p>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="section bg-light reveal">
-      <div class="container">
-        <h2 class="fw-bold mb-4">Experience</h2>
-
-        <div class="row g-3">
-          <div class="col-lg-6">
-            <div class="p-4 card-clean bg-white h-100">
-                <div class="d-flex justify-content-between flex-wrap gap-2">
-                <div>
-                  <h3 class="h5 fw-semibold mb-1">Software Engineer Intern</h3>
-                  <div class="muted">Principal Financial Group • Case Management Team</div>
-                </div>
-                <div class="badge-gradient align-self-start">May–Aug 2025</div>
-              </div>
-              <div class="divider my-3"></div>
-              <ul class="mb-0 muted">
-                <li>Built and deployed 3+ production features using React, TypeScript, and REST APIs.</li>
-                <li>Designed and documented RESTful APIs to integrate frontend and backend services.</li>
-                <li>Contributed to AWS deployments to support scalability, performance, and security.</li>
-                <li>Collaborated in Agile/Scrum teams across the U.S. and India.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="p-4 card-clean bg-white h-100">
-                <div class="d-flex justify-content-between flex-wrap gap-2">
-                <div>
-                  <h3 class="h5 fw-semibold mb-1">STEM Scholars Tutor</h3>
-                  <div class="muted">Iowa State University • COMS 227 (Java OOP)</div>
-                </div>
-                <div class="badge-gradient align-self-start">Mar 2024–Jan 2026</div>
-              </div>
-              <div class="divider my-3"></div>
-              <ul class="mb-0 muted">
-                <li>Tutored students in Java, OOP, debugging, data structures, and low-level concepts.</li>
-                <li>Led review sessions to reinforce core programming concepts.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="p-4 card-clean bg-white h-100">
-                <div class="d-flex justify-content-between flex-wrap gap-2">
-                <div>
-                  <h3 class="h5 fw-semibold mb-1">Undergraduate Researcher</h3>
-                  <div class="muted">Iowa State University • AWS Python Conversion Project</div>
-                </div>
-                <div class="badge-gradient align-self-start">Aug–Dec 2023</div>
-              </div>
-              <div class="divider my-3"></div>
-              <ul class="mb-0 muted">
-                <li>Migrated workflows from MATLAB to Python on AWS, improving runtime performance by ~40%.</li>
-                <li>Co-led Python workshops for 20+ participants.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="p-4 card-clean bg-white h-100">
-                <div class="d-flex justify-content-between flex-wrap gap-2">
-                <div>
-                  <h3 class="h5 fw-semibold mb-1">Surplus Technician (Student Worker)</h3>
-                  <div class="muted">Iowa State University</div>
-                </div>
-                <div class="badge-gradient align-self-start">Dec 2025–Present</div>
-              </div>
-              <div class="divider my-3"></div>
-              <ul class="mb-0 muted">
-                <li>Processed, handled, and inventoried computer hardware for resale or disposal.</li>
-                <li>Updated asset records and supported weekly intake operations.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="section reveal">
-      <div class="container">
-        <h2 class="fw-bold mb-4">Skills</h2>
-        <div class="row g-3">
-          <div class="col-md-6 col-lg-4">
-            <div class="p-4 card-clean bg-white h-100">
-              <h3 class="h6 text-uppercase muted mb-2">Languages</h3>
-              <p class="mb-0">Java, Python, C / Assembly, JavaScript, TypeScript, HTML, CSS, SQL</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="p-4 card-clean bg-white h-100">
-              <h3 class="h6 text-uppercase muted mb-2">Web & Frameworks</h3>
-              <p class="mb-0">React, Spring Boot, Node.js, REST</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="p-4 card-clean bg-white h-100">
-              <h3 class="h6 text-uppercase muted mb-2">Systems, Data, Tools</h3>
-              <p class="mb-0">
-                AWS, Git, Linux (CLI), TCP/IP, JUnit, pandas, NumPy, Matplotlib, Android Studio
+      <section id="about" class="section bg-light reveal">
+        <div class="container">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-7">
+              <h2 class="fw-bold mb-3">About Me</h2>
+              <p class="muted">
+                I'm a Software Engineering graduate from Iowa State University with a minor in
+                Cybersecurity. I especially enjoy frontend development and building interfaces that
+                feel intuitive and easy to use.
+              </p>
+              <p class="muted">
+                My experience also spans backend development, APIs, databases, cloud workflows, and
+                mobile applications. I like understanding how the pieces of an application fit
+                together, even when I'm working primarily on the frontend.
+              </p>
+              <p class="muted mb-0">
+                I'm looking for a full-time software engineering role where I can contribute to real
+                products, learn from experienced engineers, and keep growing as a developer.
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- About / Education -->
-    <section id="about" class="section bg-light reveal">
-      <div class="container">
-        <h2 class="fw-bold mb-3">About</h2>
-        <div class="row g-4">
-          <div class="col-lg-8">
-            <p class="muted" style="max-width: 75ch;">
-              I’m a Software Engineering student at Iowa State University (minor in Cybersecurity),
-              graduating Spring 2026. I enjoy building full-stack products—from clean UIs to reliable
-              APIs—and I’m especially interested in systems that are scalable and easy for people to use.
-            </p>
-          </div>
+            <div class="col-lg-5">
+              <div class="card-clean p-4 bg-white">
+                <div class="small text-uppercase muted mb-2">Education</div>
+                <h3 class="h5 fw-semibold mb-1">Iowa State University</h3>
+                <p class="muted mb-3">B.S. Software Engineering • Minor in Cybersecurity</p>
 
-          <div class="col-lg-4">
-            <div class="p-4 card-clean bg-white">
-              <h3 class="h6 text-uppercase muted mb-2">Education</h3>
-              <div class="fw-semibold">Iowa State University</div>
-              <div class="muted">B.S. Software Engineering • Minor: Cybersecurity</div>
-              <div class="muted">Expected Graduation: Spring 2026</div>
-              <div class="divider my-3"></div>
-              <div class="fw-semibold mb-1">Honors</div>
-              <div class="muted small">
-                ECSEL Scholar <br> 
-                Roy J. Carver Scholar <br>
-                Dean’s List (Fall 2025)
+                <div class="divider my-3"></div>
+
+                <div class="small text-uppercase muted mb-2">Honors</div>
+                <p class="muted mb-0">
+                  ECSEL Scholar<br>
+                  Roy J. Carver Scholar<br>
+                  Dean's List
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Contact -->
-    <section id="resume" class="section bg-light reveal">
-      <div class="container">
-        <div class="row align-items-start g-4">
-          <div class="col-lg-8">
-            <h2 class="fw-bold mb-2">Resume
-              <a class="link-dark ms-2 small d-inline-flex align-items-center" href="./resume.pdf" target="_blank" rel="noopener noreferrer" download aria-label="Download resume">
-                <i class="bi bi-download" aria-hidden="true"></i>
-              </a>
-            </h2>
-            <p class="muted mb-3">View the embedded PDF below. Use the download icon to save a copy.</p>
-            <div class="card card-clean p-3">
-              <div style="min-height:420px;">
-                <iframe src="./resume.pdf" style="width:100%;height:420px;border:0" title="Resume (PDF)">Your browser does not support embedded PDFs. Use the download button to get the file.</iframe>
+      <section id="resume" class="section reveal">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
+            <div>
+              <h2 class="fw-bold mb-2">Resume</h2>
+              <p class="muted mb-0">A quick view of my experience, education, and technical background.</p>
+            </div>
+            <a class="btn btn-dark pill px-4" href="./resume.pdf" target="_blank" rel="noopener noreferrer">
+              Open Resume <i class="bi bi-arrow-up-right ms-1"></i>
+            </a>
+          </div>
+
+          <div class="card-clean p-2 bg-white">
+            <iframe
+              src="./resume.pdf"
+              title="Annie Huynh resume"
+              style="width:100%;height:720px;border:0;border-radius:1rem;">
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section reveal">
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <div class="eyebrow text-dark border-dark border-opacity-10 mb-3">Open to opportunities</div>
+              <h2 class="fw-bold mb-2">Let's build something useful.</h2>
+              <p class="muted mb-0" style="max-width: 60ch;">
+                I'm currently looking for full-time software engineering opportunities, especially
+                frontend and full-stack roles.
+              </p>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="card-clean p-4">
+                <div class="d-grid gap-2">
+                  <a class="btn btn-dark btn-lg pill" href="mailto:anniehuynh65@gmail.com">
+                    <i class="bi bi-envelope me-2"></i>Email me
+                  </a>
+                  <a class="btn btn-outline-dark btn-lg pill" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-linkedin me-2"></i>LinkedIn
+                  </a>
+                  <a class="btn btn-outline-dark btn-lg pill" href="https://github.com/annieh00" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-github me-2"></i>GitHub
+                  </a>
+                </div>
               </div>
-              <!-- download is available via the icon next to the section title -->
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section reveal">
-      <div class="container">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-7">
-            <h2 class="fw-bold mb-2">Let’s connect.</h2>
-            <p class="muted mb-0" style="max-width: 60ch;">
-              Email is best. I’m also active on LinkedIn.
-            </p>
-          </div>
-          <div class="col-lg-5">
-            <div class="p-4 card-clean bg-white">
-              <div class="d-grid gap-2">
-                <a class="btn btn-ink btn-lg pill" href="mailto:anniehuynh65@gmail.com">Email me</a>
-                <a class="btn btn-outline-ink btn-lg pill" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noreferrer">LinkedIn</a>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <footer class="py-4 divider">
       <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
@@ -582,75 +718,52 @@
       </div>
     </footer>
 
-    <!-- back to top -->
-    <button id="backToTop" aria-label="Back to top"><i class="bi bi-chevron-up"></i></button>
+    <button id="backToTop" aria-label="Back to top">
+      <i class="bi bi-chevron-up"></i>
+    </button>
 
-    <!-- Bootstrap JS (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // disable browser scroll restoration to avoid jumping on load
-      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // debug logs to diagnose unexpected scrolling
-      console.log('page: script start', {hash: window.location.hash, scrollY: window.scrollY});
-      window.addEventListener('hashchange', ()=>console.log('hashchange ->', location.hash, window.scrollY));
-      window.addEventListener('scroll', ()=>{ /* throttle if needed */ });
-
-      // simple scroll-reveal using IntersectionObserver
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting) { e.target.classList.add('in-view'); console.log('reveal in-view', e.target.id || e.target.className || e.target.tagName); }
-        })
-      },{threshold:0.12});
-      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-      // back-to-top visibility + action
-      const back = document.getElementById('backToTop');
-      window.addEventListener('scroll', ()=>{
-        if(window.scrollY > 520) back.classList.add('show'); else back.classList.remove('show');
-      });
-      back.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
-
-      // smooth anchor scrolling that accounts for the sticky navbar height
-      document.querySelectorAll('a[href^="#"]').forEach(a=>{
-        a.addEventListener('click', function(e){
-          const href = this.getAttribute('href');
-          if(!href || href.length === 1) return;
-          if(href.startsWith('#')){
-            const target = document.querySelector(href);
-              if(target){
-              e.preventDefault();
-              const nav = document.querySelector('.navbar');
-              const offset = nav ? nav.offsetHeight + 12 : 12;
-              const top = target.getBoundingClientRect().top + window.scrollY - offset;
-              console.log('anchor click -> scroll to', href, 'computedTop', top);
-              window.scrollTo({top, behavior:'smooth'});
-              // close collapsed navbar on small screens
-              const bsCollapse = document.querySelector('.navbar-collapse.show');
-              if(bsCollapse) new bootstrap.Collapse(bsCollapse).hide();
-            }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
           }
-        })
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+      const backToTop = document.getElementById("backToTop");
+
+      window.addEventListener("scroll", () => {
+        backToTop.classList.toggle("show", window.scrollY > 500);
       });
 
-      // (disabled) do not auto-scroll on load even if a hash is present — prevents unexpected jumps
-
-      // ensure initial load / bfcache restores start at the top (avoid unexpected preserved scroll)
-      window.addEventListener('load', ()=>{
-        if(!window.location.hash){
-          // force to top
-          setTimeout(()=> window.scrollTo(0,0), 50);
-        }
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
-      // pageshow fires when navigating back/forward (bfcache). ensure no restored scroll.
-      window.addEventListener('pageshow', (e)=>{
-        console.log('pageshow', {persisted: e.persisted, hash: window.location.hash, scrollY: window.scrollY});
-        if(!window.location.hash){
-          try{ window.scrollTo(0,0); }catch(err){}
-          try{ if(document.activeElement && typeof document.activeElement.blur === 'function') document.activeElement.blur(); }catch(err){}
-        }
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const target = document.querySelector(link.getAttribute("href"));
+          if (!target) return;
+
+          event.preventDefault();
+
+          const navbar = document.querySelector(".navbar");
+          const offset = navbar ? navbar.offsetHeight + 12 : 12;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+          window.scrollTo({ top, behavior: "smooth" });
+
+          const menu = document.querySelector(".navbar-collapse.show");
+          if (menu) {
+            bootstrap.Collapse.getOrCreateInstance(menu).hide();
+          }
+        });
       });
     </script>
   </body>
