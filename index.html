@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Annie Huynh is a software engineer focused on building thoughtful, user-focused software with React, TypeScript, Java, and Spring Boot.">
+  <meta name="description" content="Annie Huynh is a frontend-focused software engineer and Iowa State University graduate who builds thoughtful interfaces and full-stack applications with React, TypeScript, Java, and Spring Boot.">
   <meta name="theme-color" content="#f7f7f5">
   <title>Annie Huynh | Software Engineer</title>
 
@@ -248,6 +248,29 @@
     .market-price { font:700 10px DM Sans,sans-serif; color:#333; margin-bottom:6px; }
     .market-line { height: 5px; width: 85%; border-radius: 4px; background: #dfe0df; margin-bottom: 5px; }
     .market-line.short { width: 48%; background: #eeefed; }
+    .robot-visual { background: radial-gradient(ellipse at 50% 45%, #252525 0, #111 48%, #080808 100%); }
+    .robot-panel { width: min(100%, 470px); overflow: hidden; border: 1px solid rgba(255,255,255,.15); border-radius: 15px; color: #e9e9e9; background: rgba(13,13,13,.94); box-shadow: 0 28px 75px rgba(0,0,0,.4); transform: rotate(-1.5deg); transition: transform .35s ease; }
+    .project-card:hover .robot-panel { transform: rotate(0) scale(1.035); }
+    .robot-panel-top, .robot-panel-bottom { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:13px 15px; color:#9d9d9d; font:600 8px/1.4 "DM Sans",sans-serif; letter-spacing:.12em; }
+    .robot-panel-top { border-bottom:1px solid rgba(255,255,255,.1); }
+    .robot-status { display:flex; align-items:center; gap:6px; color:#d1d1d1; }
+    .robot-status i { width:5px; height:5px; border-radius:50%; background:#c7c7c7; }
+    .robot-display { display:grid; grid-template-columns:1fr .8fr; align-items:center; gap:16px; padding:22px 17px; }
+    .sonar-wrap { position:relative; width:100%; max-width:190px; aspect-ratio:1; margin:auto; border-radius:50%; background:radial-gradient(circle,rgba(255,255,255,.06),transparent 68%); overflow:hidden; }
+    .sonar-ring { position:absolute; inset:12%; border:1px solid rgba(255,255,255,.14); border-radius:50%; }
+    .ring-two { inset:27%; } .ring-three { inset:42%; }
+    .sonar-wrap::before,.sonar-wrap::after { content:""; position:absolute; background:rgba(255,255,255,.13); }
+    .sonar-wrap::before { left:50%; top:4%; bottom:4%; width:1px; }
+    .sonar-wrap::after { top:50%; left:4%; right:4%; height:1px; }
+    .sonar-sweep { position:absolute; width:46%; height:46%; left:50%; top:50%; transform-origin:0 0; background:linear-gradient(135deg,rgba(220,220,220,.28),transparent 72%); clip-path:polygon(0 0,100% 0,0 100%); }
+    .sonar-dot { position:absolute; width:7px; height:7px; top:31%; right:25%; border-radius:50%; background:#f5f5f5; box-shadow:0 0 16px rgba(255,255,255,.7); }
+    .sonar-label { position:absolute; color:#b8b8b8; font:600 7px "DM Sans",sans-serif; letter-spacing:.1em; }
+    .label-left { left:10%; top:47%; } .label-right { right:8%; bottom:23%; }
+    .robot-readouts { display:grid; gap:9px; }
+    .robot-readouts div { padding:9px 10px; border:1px solid rgba(255,255,255,.1); border-radius:7px; background:rgba(255,255,255,.025); }
+    .robot-readouts small,.robot-readouts span { display:block; color:#898989; font:600 7px/1.4 "DM Sans",sans-serif; letter-spacing:.1em; }
+    .robot-readouts strong { display:block; margin:4px 0; color:#f4f4f4; font:700 15px "Manrope",sans-serif; letter-spacing:-.04em; }
+    .robot-panel-bottom { border-top:1px solid rgba(255,255,255,.1); }
     .project-info { padding: clamp(30px, 4vw, 58px); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
     .project-info h3 { font: 800 clamp(2.2rem, 3.5vw, 3.2rem)/1 "Manrope", sans-serif; letter-spacing: -.07em; margin: 20px 0 14px; }
     .project-info p { color: #656565; line-height: 1.85; margin: 0 0 23px; }
@@ -356,6 +379,12 @@
       .section-heading { margin-bottom: 32px; }
       .section-heading h2 { font-size: clamp(2.5rem, 12vw, 3.6rem); }
       .project-visual { min-height: 250px; padding: 18px; }
+      .robot-display { grid-template-columns: 1fr; gap: 12px; padding: 14px; }
+      .sonar-wrap { max-width: 145px; }
+      .robot-readouts { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+      .robot-readouts div { padding: 7px 6px; }
+      .robot-readouts strong { font-size: 12px; }
+      .robot-readouts span { font-size: 6px; }
       .project-visual::before { width: 250px; height: 250px; }
       .project-visual::after { width: 190px; height: 190px; }
       .project-info { padding: 25px 22px 28px; }
@@ -403,9 +432,9 @@
     <section class="hero" id="top">
       <div class="container hero-inner">
         <div class="hero-copy" id="heroCopy">
-          <div class="availability"><span class="availability-dot"></span> Software engineering graduate · Spring 2026</div>
+          <div class="availability"><span class="availability-dot"></span> Frontend-focused software engineer · Iowa State University, 2026</div>
           <h1><span class="name-line">Hi, I’m</span><span class="name-line accent-name">Annie Huynh.</span></h1>
-          <p class="hero-subtitle">I build thoughtful, user-focused interfaces and the systems behind them, with a focus on clean design, useful details, and making complex things feel simple.</p>
+          <p class="hero-subtitle">I build thoughtful digital experiences, pairing clean, intuitive interfaces with the engineering that makes them work.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#work">Explore my work <i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
             <a class="button button-secondary" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noopener">Connect on LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
@@ -423,7 +452,7 @@
         <div class="section-heading reveal">
           <span class="eyebrow">Selected work</span>
           <h2>Ideas, meet execution.</h2>
-          <p>A few projects where I brought interfaces, APIs, and real product needs together.</p>
+          <p>A selection of projects spanning product interfaces, full-stack application development, and embedded systems.</p>
         </div>
 
         <div class="work-grid">
@@ -449,8 +478,8 @@
             <div class="project-info">
               <div class="project-meta"><span>Academic planning platform</span><span class="project-number">01 / 02</span></div>
               <h3>CourseFlow</h3>
-              <p>A cross-platform degree-planning app for Iowa State students that brings prerequisite exploration and semester planning into one experience. Built with React Native and TypeScript, with a Spring Boot backend and PostgreSQL database, CourseFlow makes course dependencies easier to understand and academic decisions easier to navigate.</p>
-              <div class="tags"><span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span></div>
+              <p>CourseFlow brings degree planning into one cross-platform experience for Iowa State students. Built with React Native and TypeScript, it includes student, advisor, and administrator workflows, student professor-review features, and visual prerequisite exploration. Spring Boot and PostgreSQL power full-stack advisor functionality and course data.</p>
+              <div class="tags"><span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span><span class="tag">REST APIs</span></div>
               <a class="project-link" href="https://github.com/annieh00/courseflow" target="_blank" rel="noopener">View on GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
             </div>
           </article>
@@ -467,11 +496,30 @@
               </div>
             </div>
             <div class="project-info">
-              <div class="project-meta"><span>Student marketplace</span><span class="project-number">02 / 02</span></div>
+              <div class="project-meta"><span>Student marketplace</span><span class="project-number">02 / 03</span></div>
               <h3>CyMarket</h3>
-              <p>An Android marketplace experience designed around campus buying and selling. I built the Java frontend for browsing listings and viewing item details, with clear product cards and focused navigation that help students move from discovering an item to exploring it. The project uses MySQL to organize marketplace data.</p>
-              <div class="tags"><span class="tag">Android</span><span class="tag">Java</span><span class="tag">MySQL</span><span class="tag">UI Development</span></div>
+              <p>CyMarket is an Android marketplace designed for campus buying and selling, with real-time auctions and messaging. The application brings item discovery and buyer-seller communication together, using REST APIs for application data and WebSockets for live auction and messaging updates.</p>
+              <div class="tags"><span class="tag">Java</span><span class="tag">Android Studio</span><span class="tag">REST APIs</span><span class="tag">WebSockets</span></div>
               <a class="project-link" href="https://github.com/annieh00/cymarket" target="_blank" rel="noopener">View on GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-1">
+            <div class="project-visual robot-visual" aria-label="Illustrative embedded robotics dashboard">
+              <div class="robot-panel" aria-hidden="true">
+                <div class="robot-panel-top"><span>CYBOT / NAVIGATION</span><span class="robot-status"><i></i> SYSTEM READY</span></div>
+                <div class="robot-display">
+                  <div class="sonar-wrap"><div class="sonar-ring ring-one"></div><div class="sonar-ring ring-two"></div><div class="sonar-ring ring-three"></div><div class="sonar-sweep"></div><div class="sonar-dot"></div><span class="sonar-label label-left">IR</span><span class="sonar-label label-right">PING</span></div>
+                  <div class="robot-readouts"><div><small>RANGE</small><strong>02 cm</strong><span>CALIBRATED</span></div><div><small>MODE</small><strong>AUTO</strong><span>OBSTACLE AVOID</span></div><div><small>CORE</small><strong>ARM</strong><span>EMBEDDED C</span></div></div>
+                </div>
+                <div class="robot-panel-bottom"><span>GPIO · ADC · PWM · UART</span><span>CYBOT PROJECT</span></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta"><span>Embedded robotics</span><span class="project-number">03 / 03</span></div>
+              <h3>CyBot Autonomous Navigation Robot</h3>
+              <p>Programmed an autonomous robot in C for an ARM Cortex-M microcontroller to detect obstacles and navigate a test field using PING SONAR and infrared sensors. Implemented low-level drivers with GPIO interrupts, ADC, timer-based PWM, and UART, then built an object-selection algorithm to navigate toward the narrowest target while avoiding collisions.</p>
+              <div class="tags"><span class="tag">C</span><span class="tag">ARM Cortex-M</span><span class="tag">Embedded Systems</span><span class="tag">Sensors</span></div>
             </div>
           </article>
         </div>
@@ -491,43 +539,35 @@
 
         <div class="timeline">
           <article class="timeline-item reveal">
+            <div class="timeline-date">Aug 2026 – Present</div>
+            <div>
+              <h3>Cell Phone Repair Technician / Sales Associate</h3>
+              <div class="timeline-company">CPR Cell Phone Repair · Ames, IA</div>
+              <p>Diagnose hardware and software issues across phones, tablets, and computers, perform repairs and component replacements, and help customers choose appropriate repair solutions.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
             <div class="timeline-date">May – Aug 2025</div>
             <div>
               <h3>Software Engineer Intern</h3>
               <div class="timeline-company">Principal Financial Group · Case Management</div>
-              <p>Built React and TypeScript features for a production onboarding workflow, integrated UI components with REST APIs, and collaborated with U.S. and India teammates in an Agile environment.</p>
-            </div>
-          </article>
-          <article class="timeline-item reveal">
-            <div class="timeline-date">Aug 2026 – Present</div>
-            <div>
-              <h3>Cell Phone Repair Technician / Sales Associate</h3>
-              <div class="timeline-company">CPR Cell Phone Repair</div>
-              <p>Diagnose device hardware and software issues, assist with repairs and component replacements, and help customers understand repair options.</p>
+              <p>Built and deployed 3+ React and TypeScript features for a production onboarding workflow, including buttons, modals, and date inputs. Integrated UI components with REST APIs and collaborated with U.S. and India-based teammates in Agile/Scrum development while supporting AWS deployment workflows.</p>
             </div>
           </article>
           <article class="timeline-item reveal">
             <div class="timeline-date">Dec 2025 – May 2026</div>
             <div>
-              <h3>Surplus Technician</h3>
-              <div class="timeline-company">Iowa State University</div>
-              <p>Tested laptops, desktops, and monitors; reset computers and installed or updated Ubuntu; and troubleshot basic hardware and software issues.</p>
+              <h3>ISU Surplus Technician</h3>
+              <div class="timeline-company">Iowa State University · Ames, IA</div>
+              <p>Tested laptops, desktop towers, and monitors; reset computers and installed or updated Ubuntu for resale; and diagnosed basic hardware and software issues during device preparation.</p>
             </div>
           </article>
           <article class="timeline-item reveal">
             <div class="timeline-date">Mar 2024 – Jan 2026</div>
             <div>
-              <h3>Java / Object-Oriented Programming Tutor</h3>
-              <div class="timeline-company">Iowa State University · STEM Scholars</div>
-              <p>Helped students build confidence with Java, object-oriented programming, debugging, and core programming concepts through tutoring and review sessions.</p>
-            </div>
-          </article>
-          <article class="timeline-item reveal">
-            <div class="timeline-date">Aug – Dec 2023</div>
-            <div>
-              <h3>Undergraduate Research Assistant</h3>
-              <div class="timeline-company">Iowa State University</div>
-              <p>Assisted with weekly Python workshops, explaining programming concepts and helping participants complete hands-on exercises.</p>
+              <h3>STEM Scholars Tutor · COMS 227</h3>
+              <div class="timeline-company">Iowa State University · Ames, IA</div>
+              <p>Tutored students in Java, object-oriented programming, debugging, and data structures, and led review sessions to reinforce core programming concepts.</p>
             </div>
           </article>
         </div>
@@ -571,7 +611,7 @@
           <article class="skill-card reveal reveal-delay-2">
             <div class="skill-icon"><i class="bi bi-terminal" aria-hidden="true"></i></div>
             <h3>Systems & Tools</h3>
-            <p>Python, C, Assembly, Linux, Git, JUnit, Android Studio, VS Code, and introductory AWS deployment workflows.</p>
+            <p>Python, C, Assembly, Linux, Git, JUnit, TCP/IP, operating systems, Android Studio, and AWS deployment workflows.</p>
           </article>
         </div>
       </div>
