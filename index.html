@@ -19,10 +19,10 @@
       --ink: #171717;
       --muted: #696a70;
       --line: rgba(20, 20, 20, .11);
-      --accent: #3859d7;
-      --accent-soft: #edf0ff;
-      --dark: #171819;
-      --dark-muted: #b8bbc2;
+      --accent: #333333;
+      --accent-soft: #eeeeec;
+      --dark: #090909;
+      --dark-muted: #b8b8b8;
       --radius: 24px;
       --content: 1160px;
       --shadow: 0 20px 60px rgba(22, 25, 35, .07);
@@ -42,7 +42,7 @@
     a { color: inherit; text-decoration: none; }
     button { font: inherit; }
     img { max-width: 100%; display: block; }
-    ::selection { background: #dce3ff; color: #101010; }
+    ::selection { background: #e8e8e6; color: #101010; }
 
     .container { width: min(var(--content), calc(100% - 48px)); margin-inline: auto; }
     .eyebrow {
@@ -72,13 +72,20 @@
     /* Navigation */
     .nav-wrap {
       position: fixed; inset: 0 0 auto; z-index: 1000;
-      padding: 16px 0; transition: background .25s ease, border-color .25s ease, padding .25s ease;
+      padding: 16px 0; transition: background .25s ease, border-color .25s ease, padding .25s ease, box-shadow .25s ease;
       border-bottom: 1px solid transparent;
+      will-change: background;
     }
     .nav-wrap.scrolled {
-      background: rgba(247, 247, 245, .86); backdrop-filter: blur(18px);
-      border-color: var(--line); padding: 10px 0;
+      background: rgba(247, 247, 245, .88); backdrop-filter: blur(18px);
+      border-color: var(--line); padding: 10px 0; box-shadow: 0 8px 30px rgba(0,0,0,.035);
     }
+    .nav-wrap:not(.scrolled) .brand { color: #f5f5f5; }
+    .nav-wrap:not(.scrolled) .brand-mark { color: #111; background: #f5f5f5; }
+    .nav-wrap:not(.scrolled) .nav-links a { color: #c9c9c9; }
+    .nav-wrap:not(.scrolled) .nav-links .nav-contact { color: #f5f5f5; border-color: rgba(255,255,255,.22); }
+    .nav-wrap:not(.scrolled) .nav-links .nav-contact:hover { color: #111; background: #f5f5f5; border-color: #f5f5f5; }
+    .nav-wrap:not(.scrolled) .menu-toggle { color: #f5f5f5; background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.2); }
     .nav {
       width: min(var(--content), calc(100% - 48px)); margin: auto;
       display: flex; align-items: center; justify-content: space-between; gap: 24px;
@@ -105,64 +112,76 @@
       width: 42px; height: 42px; border-radius: 50%; cursor: pointer;
     }
 
-    /* Scroll-driven opening */
+    /* Scroll-driven opening: a restrained, Apple-launch-inspired black hero */
     .hero {
       min-height: 100svh; position: relative; overflow: clip;
-      display: flex; align-items: center; padding: 130px 0 80px;
-      background:
-        radial-gradient(ellipse at 78% 42%, rgba(71, 98, 225, .10), transparent 31%),
-        radial-gradient(ellipse at 92% 18%, rgba(180, 193, 255, .16), transparent 28%),
-        var(--paper);
+      display: flex; align-items: center; padding: 128px 0 64px;
+      color: #f8f8f8; background: #080808;
     }
     .hero::before {
-      content: ""; position: absolute; width: min(46vw, 650px); aspect-ratio: 1;
-      border: 1px solid rgba(56, 89, 215, .10); border-radius: 50%;
-      right: -8%; top: 14%; pointer-events: none;
+      content: ""; position: absolute; width: min(64vw, 860px); aspect-ratio: 1;
+      border: 1px solid rgba(255,255,255,.055); border-radius: 50%;
+      right: -8%; top: 8%; pointer-events: none;
     }
     .hero::after {
-      content: ""; position: absolute; width: min(33vw, 470px); aspect-ratio: 1;
-      border: 1px solid rgba(56, 89, 215, .08); border-radius: 50%;
-      right: 0; top: 25%; pointer-events: none;
+      content: ""; position: absolute; width: min(46vw, 620px); aspect-ratio: 1;
+      border: 1px solid rgba(255,255,255,.045); border-radius: 50%;
+      right: 2%; top: 20%; pointer-events: none;
     }
     .hero-inner { position: relative; z-index: 1; width: 100%; }
-    .hero-copy { max-width: 920px; }
+    .hero-copy { max-width: 1000px; margin: 0 auto; text-align: center; will-change: opacity, transform; transition: filter .2s linear; }
     .availability {
       display: inline-flex; align-items: center; gap: 10px; padding: 9px 13px;
-      background: rgba(255,255,255,.74); border: 1px solid var(--line);
-      border-radius: 999px; color: #51525a; font-size: .83rem; margin-bottom: 30px;
-      box-shadow: 0 5px 20px rgba(20,20,20,.025);
+      background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.13);
+      border-radius: 999px; color: #d0d0d0; font-size: .8rem; margin-bottom: 34px;
     }
-    .availability-dot { width: 7px; height: 7px; border-radius: 50%; background: #3a9b6c; box-shadow: 0 0 0 4px rgba(58,155,108,.12); }
+    .availability-dot { width: 6px; height: 6px; border-radius: 50%; background: #d2d2d2; }
     .hero h1 {
-      max-width: 940px; margin: 0; font: 700 clamp(4rem, 9.5vw, 8.7rem)/.94 "Manrope", sans-serif;
-      letter-spacing: -.09em;
+      max-width: 1000px; margin: 0 auto;
+      font: 700 clamp(4.1rem, 10.5vw, 9.2rem)/.91 "Manrope", sans-serif;
+      letter-spacing: -.095em;
     }
     .hero h1 .name-line { display: block; }
-    .hero h1 .accent-name { color: var(--accent); }
+    .hero h1 .accent-name { color: #f5f5f5; }
     .hero-subtitle {
-      max-width: 580px; margin: 28px 0 0; color: #62636a;
-      font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.7;
+      max-width: 610px; margin: 28px auto 0; color: #a8a8a8;
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.75;
     }
-    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; margin-top: 34px; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; margin-top: 32px; }
     .button {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
       padding: 14px 19px; border-radius: 999px; border: 1px solid transparent;
       font-weight: 700; font-size: .9rem; transition: transform .2s ease, background .2s ease, border-color .2s ease;
     }
     .button:hover { transform: translateY(-2px); }
-    .button-primary { background: var(--ink); color: #fff; }
-    .button-primary:hover { background: var(--accent); }
-    .button-secondary { border-color: var(--line); background: rgba(255,255,255,.64); }
-    .button-secondary:hover { border-color: rgba(56,89,215,.4); background: #fff; }
+    .button-primary { background: #f5f5f5; color: #111; }
+    .button-primary:hover { background: #d8d8d8; }
+    .button-secondary { border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.04); color: #f5f5f5; }
+    .button-secondary:hover { border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.09); }
     .hero-bottom {
-      display: flex; align-items: center; justify-content: space-between; gap: 20px;
-      margin-top: clamp(70px, 12vh, 120px); color: #777880; font-size: .78rem;
-      letter-spacing: .1em; text-transform: uppercase;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+      margin-top: clamp(48px, 8vh, 76px); color: #8b8b8b; font-size: .74rem;
+      letter-spacing: .1em; text-transform: uppercase; text-align: center;
     }
     .scroll-cue { display: inline-flex; align-items: center; gap: 12px; }
+
+    /* Resume */
+    .resume-section { background: var(--paper); }
+    .resume-panel {
+      display: flex; align-items: center; justify-content: space-between; gap: 36px;
+      padding: clamp(30px, 5vw, 64px); border-radius: 28px; background: #090909; color: #f8f8f8;
+    }
+    .resume-copy { max-width: 660px; }
+    .resume-copy .eyebrow { color: #b8b8b8; }
+    .resume-copy h2 { margin: 18px 0 14px; font: 700 clamp(2.3rem, 5vw, 4.1rem)/1.04 "Manrope", sans-serif; letter-spacing: -.065em; }
+    .resume-copy p { max-width: 600px; margin: 0; color: #b8b8b8; line-height: 1.8; }
+    .resume-actions { display: flex; flex-wrap: wrap; gap: 12px; flex-shrink: 0; }
+    .resume-section .button-primary { background: #f5f5f5; color: #111; }
+    .resume-section .button-secondary { color: #f5f5f5; border-color: rgba(255,255,255,.25); background: transparent; }
+    .resume-section .button-secondary:hover { background: rgba(255,255,255,.09); }
     .scroll-cue span {
       display: inline-grid; place-items: center; width: 34px; height: 34px;
-      border: 1px solid var(--line); border-radius: 50%; color: var(--ink);
+      border: 1px solid rgba(255,255,255,.18); border-radius: 50%; color: #f5f5f5;
       animation: bob 2s ease-in-out infinite;
     }
     @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
@@ -174,51 +193,48 @@
     .reveal-delay-2 { transition-delay: .16s; }
     .reveal-delay-3 { transition-delay: .24s; }
 
-    /* skill card */
-    .skill-card {
-  min-width: 0;
-}
-
-.skill-card p {
-  overflow-wrap: anywhere;
-}
-    
     /* Selected work */
     .work-section { background: #fff; border-top: 1px solid rgba(20,20,20,.04); }
-    .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .work-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+    /* Featured project rows: let the product visuals lead, rather than using two small generic cards. */
     .project-card {
-      position: relative; min-width: 0; overflow: hidden; border: 1px solid var(--line);
-      border-radius: var(--radius); background: #fafaf9; transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+      position: relative; min-width: 0; overflow: hidden; border: 1px solid rgba(20,20,20,.1);
+      border-radius: 28px; background: #fafaf9; display: grid; grid-template-columns: 1.12fr .88fr;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
     }
-    .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(56,89,215,.22); }
+    .project-card:nth-child(even) .project-visual { order: 2; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 28px 80px rgba(22,22,22,.1); border-color: rgba(20,20,20,.22); }
     .project-visual {
-      min-height: 300px; position: relative; overflow: hidden; padding: 30px;
-      display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, #f0f2ff, #f8f8f7 70%);
+      min-height: 460px; position: relative; overflow: hidden; padding: 30px;
+      display: flex; align-items: center; justify-content: center; isolation: isolate;
+      background: radial-gradient(ellipse at 50% 45%, #292929 0, #151515 42%, #090909 100%);
     }
-    .project-visual.market-visual { background: linear-gradient(135deg, #f2f1ed, #f8f8f7 72%); }
+    .project-visual::before { content: ""; position: absolute; width: 360px; height: 360px; border: 1px solid rgba(255,255,255,.09); border-radius: 50%; z-index: -1; }
+    .project-visual::after { content: ""; position: absolute; width: 270px; height: 270px; border: 1px solid rgba(255,255,255,.07); border-radius: 50%; z-index: -1; }
+    .project-visual.market-visual { background: radial-gradient(ellipse at 50% 45%, #33332f 0, #191917 42%, #090909 100%); }
     .browser-window {
-      width: min(100%, 410px); overflow: hidden; background: #fff; border: 1px solid rgba(20,20,20,.12);
-      border-radius: 13px; box-shadow: 0 22px 55px rgba(30,36,70,.12); transform: rotate(-2deg);
+      width: min(108%, 520px); overflow: hidden; background: #fff; border: 1px solid rgba(20,20,20,.12);
+      border-radius: 15px; box-shadow: 0 28px 75px rgba(0,0,0,.34); transform: rotate(-2deg);
       transition: transform .35s ease;
     }
-    .project-card:hover .browser-window { transform: rotate(0) scale(1.02); }
+    .project-card:hover .browser-window { transform: rotate(0) scale(1.045); box-shadow: 0 34px 90px rgba(0,0,0,.42); }
     .browser-bar { display: flex; align-items: center; gap: 5px; height: 30px; padding: 0 12px; border-bottom: 1px solid #eee; }
     .browser-bar i { width: 6px; height: 6px; border-radius: 50%; background: #d7d8dc; }
-    .mock-app { display: grid; grid-template-columns: 90px 1fr; min-height: 190px; }
+    .mock-app { display: grid; grid-template-columns: 90px 1fr; min-height: 210px; }
     .mock-sidebar { padding: 14px 9px; background: #f7f8fc; border-right: 1px solid #edf0f4; }
     .mock-logo { width: 28px; height: 7px; border-radius: 4px; background: var(--accent); margin: 0 0 18px 4px; }
     .mock-nav { height: 6px; width: 54px; border-radius: 4px; background: #dfe2ec; margin: 11px 4px; }
-    .mock-nav.active { background: #aab8ff; width: 62px; }
+    .mock-nav.active { background: #b9b9b9; width: 62px; }
     .mock-content { padding: 17px; }
     .mock-title { width: 60%; height: 9px; background: #292c38; border-radius: 5px; margin-bottom: 7px; }
     .mock-caption { width: 78%; height: 5px; background: #e1e3e9; border-radius: 5px; margin-bottom: 16px; }
     .mock-courses { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .mock-course { min-height: 55px; border: 1px solid #e8eaf0; border-radius: 7px; padding: 8px; }
-    .mock-course::before { content: ""; display: block; width: 23px; height: 5px; border-radius: 4px; background: #c7d0ff; margin-bottom: 8px; }
+    .mock-course b { display:block; font:700 9px DM Sans,sans-serif; color:#333; margin-bottom:5px; }
+    .mock-course small { display:block; font:400 7px/1.35 DM Sans,sans-serif; color:#858585; }
     .mock-course::after { content: ""; display: block; width: 80%; height: 5px; border-radius: 4px; background: #eceef3; }
-    .market-ui { width: min(100%, 410px); background: #fff; border: 1px solid rgba(20,20,20,.1); border-radius: 14px; padding: 16px; box-shadow: 0 22px 55px rgba(20,20,20,.10); transform: rotate(2deg); transition: transform .35s ease; }
-    .project-card:hover .market-ui { transform: rotate(0) scale(1.02); }
+    .market-ui { width: min(108%, 520px); background: #fff; border: 1px solid rgba(20,20,20,.1); border-radius: 16px; padding: 18px; box-shadow: 0 28px 75px rgba(0,0,0,.34); transform: rotate(2deg); transition: transform .35s ease; }
+    .project-card:hover .market-ui { transform: rotate(0) scale(1.045); box-shadow: 0 34px 90px rgba(0,0,0,.42); }
     .market-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid #eee; }
     .market-logo { font: 800 13px "Manrope", sans-serif; letter-spacing: -.04em; }
     .market-search { width: 100px; height: 19px; background: #f3f3f1; border-radius: 6px; }
@@ -228,9 +244,15 @@
     .market-item:nth-child(2) .market-thumb { background: linear-gradient(135deg,#e9e8f1,#f7f6f3); }
     .market-item:nth-child(3) .market-thumb { background: linear-gradient(135deg,#e6ece7,#f7f6f3); }
     .market-thumb::after { content: ""; position: absolute; width: 36%; height: 42%; left: 32%; top: 26%; border-radius: 5px; background: rgba(90,93,102,.18); transform: rotate(-8deg); }
+    .market-product-name { font:600 9px DM Sans,sans-serif; color:#333; margin:6px 0 3px; }
+    .market-price { font:700 10px DM Sans,sans-serif; color:#333; margin-bottom:6px; }
     .market-line { height: 5px; width: 85%; border-radius: 4px; background: #dfe0df; margin-bottom: 5px; }
     .market-line.short { width: 48%; background: #eeefed; }
-    .project-info { padding: 28px 30px 30px; }
+    .project-info { padding: clamp(30px, 4vw, 58px); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .project-info h3 { font: 800 clamp(2.2rem, 3.5vw, 3.2rem)/1 "Manrope", sans-serif; letter-spacing: -.07em; margin: 20px 0 14px; }
+    .project-info p { color: #656565; line-height: 1.85; margin: 0 0 23px; }
+    .project-info .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 25px; }
+    .tag { display: inline-flex; padding: 7px 10px; border: 1px solid rgba(20,20,20,.1); border-radius: 999px; color: #505050; background: #fff; font-size: .75rem; font-weight: 600; }
     .project-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--muted); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
     .project-number { color: #9a9ba2; }
     .project-info h3 { font: 700 1.7rem "Manrope", sans-serif; letter-spacing: -.055em; margin: 16px 0 10px; }
@@ -239,31 +261,6 @@
     .tag { display: inline-flex; padding: 7px 10px; border-radius: 999px; background: #f0f1f4; color: #555762; font-size: .75rem; font-weight: 600; }
     .project-link { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; font-weight: 700; }
     .project-link:hover { color: var(--accent); }
-    
-.project-details {
-  padding-left: 19px;
-  margin: 0 0 20px;
-  color: #555762;
-  font-size: .9rem;
-  line-height: 1.7;
-}
-
-.project-details li + li {
-  margin-top: 5px;
-}
-
-.project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-
-.project-note {
-  color: #777880;
-  font-size: .8rem;
-  line-height: 1.6;
-  margin-top: 17px;
-}
 
     /* Experience */
     .experience-section { background: var(--paper); }
@@ -280,50 +277,14 @@
     /* Skills */
     .skills-section { background: #fff; }
     .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .skill-card { padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+    .skill-icon { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 14px; background: var(--accent-soft); color: var(--accent); font-size: 1.1rem; margin-bottom: 22px; }
+    .skill-card h3 { margin: 0 0 12px; font: 700 1.1rem "Manrope", sans-serif; letter-spacing: -.03em; }
+    .skill-card p { color: var(--muted); line-height: 1.8; font-size: .92rem; margin: 0; }
 
-
-    
-.skill-card {
-  padding: 28px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: #fafaf9;
-  transition: transform .25s ease, box-shadow .25s ease,
-    border-color .25s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-  border-color: rgba(56, 89, 215, .22);
-}
-
-.skill-icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  margin-bottom: 22px;
-  border-radius: 13px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-size: 1.25rem;
-}
-
-.skill-card h3 {
-  margin: 0 0 12px;
-  font: 700 1.15rem "Manrope", sans-serif;
-  letter-spacing: -.03em;
-}
-
-.skill-card p {
-  margin: 0;
-  color: var(--muted);
-  font-size: .93rem;
-  line-height: 1.8;
-}
     /* About and contact */
     .about-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 70px; align-items: start; }
+    #about { background: linear-gradient(180deg, #f7f7f5 0%, #f1f1ef 100%); border-top: 1px solid rgba(20,20,20,.045); border-bottom: 1px solid rgba(20,20,20,.045); }
     .about-photo-wrap { max-width: 330px; }
     .about-photo {
       width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px;
@@ -335,14 +296,16 @@
     .about-facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
     .about-fact { padding: 10px 13px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.55); font-size: .82rem; font-weight: 600; }
 
-    .contact-section { padding: 90px 0 40px; background: var(--dark); color: #fff; }
+    .contact-section { padding: 100px 0 40px; background: radial-gradient(ellipse at 86% 12%, #202020 0%, #090909 42%); color: #fff; position: relative; overflow: hidden; }
+    .contact-section::before { content: ''; position: absolute; width: min(54vw, 700px); aspect-ratio: 1; border: 1px solid rgba(255,255,255,.055); border-radius: 50%; right: -18%; top: -38%; pointer-events: none; }
+    .contact-section > .container { position: relative; z-index: 1; }
     .contact-panel { display: flex; align-items: end; justify-content: space-between; gap: 40px; padding-bottom: 70px; }
     .contact-panel .eyebrow { color: #b8bbc2; }
     .contact-panel h2 { max-width: 720px; font: 700 clamp(3rem, 7vw, 6.8rem)/.98 "Manrope", sans-serif; letter-spacing: -.08em; margin: 20px 0; }
     .contact-panel p { color: var(--dark-muted); max-width: 500px; line-height: 1.8; }
     .contact-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 190px; }
     .contact-section .button-primary { background: #fff; color: var(--ink); }
-    .contact-section .button-primary:hover { background: #dfe5ff; }
+    .contact-section .button-primary:hover { background: #e8e8e6; }
     .contact-section .button-secondary { color: #fff; border-color: rgba(255,255,255,.2); background: transparent; }
     .contact-section .button-secondary:hover { background: rgba(255,255,255,.08); }
     .footer {
@@ -355,13 +318,15 @@
     @media (max-width: 850px) {
       .section { padding: 88px 0; }
       .hero h1 { font-size: clamp(3.7rem, 12vw, 6.4rem); }
-      .work-grid { grid-template-columns: 1fr; }
-      .project-visual { min-height: 280px; }
+      .project-card { grid-template-columns: 1fr; }
+      .project-card:nth-child(even) .project-visual { order: 0; }
+      .project-visual { min-height: 320px; }
       .experience-layout, .about-grid { grid-template-columns: 1fr; gap: 35px; }
       .experience-intro { position: static; }
       .about-photo-wrap { max-width: 260px; }
       .skills-grid { grid-template-columns: 1fr 1fr; }
       .contact-panel { align-items: flex-start; flex-direction: column; }
+      .resume-panel { align-items: flex-start; flex-direction: column; }
       .contact-actions { flex-direction: row; flex-wrap: wrap; }
     }
     @media (max-width: 620px) {
@@ -377,18 +342,24 @@
       .nav-links.open { display: flex; }
       .nav-links a { padding: 13px 10px; }
       .nav-links .nav-contact { margin-top: 7px; text-align: center; }
-      .hero { min-height: 92svh; padding: 115px 0 42px; }
+      .hero { min-height: 92svh; padding: 112px 0 38px; }
       .hero::before { width: 90vw; right: -52%; top: 18%; }
       .hero::after { width: 70vw; right: -38%; top: 27%; }
-      .availability { margin-bottom: 25px; font-size: .75rem; }
-      .hero h1 { font-size: clamp(3.5rem, 16vw, 5.5rem); }
-      .hero-subtitle { font-size: 1.04rem; }
-      .hero-bottom { margin-top: 65px; font-size: .68rem; }
+      .availability { margin-bottom: 25px; font-size: .72rem; }
+      .hero h1 { font-size: clamp(3.5rem, 15.5vw, 5.5rem); }
+      .hero-subtitle { font-size: 1.02rem; }
+      .hero-bottom { margin-top: 48px; gap: 14px; font-size: .65rem; }
+      .resume-panel { padding: 28px 22px; border-radius: 22px; }
+      .resume-actions { flex-direction: column; align-items: stretch; width: 100%; }
+      .resume-actions .button { width: 100%; }
       .section { padding: 76px 0; }
       .section-heading { margin-bottom: 32px; }
       .section-heading h2 { font-size: clamp(2.5rem, 12vw, 3.6rem); }
-      .project-visual { min-height: 235px; padding: 18px; }
-      .project-info { padding: 23px; }
+      .project-visual { min-height: 250px; padding: 18px; }
+      .project-visual::before { width: 250px; height: 250px; }
+      .project-visual::after { width: 190px; height: 190px; }
+      .project-info { padding: 25px 22px 28px; }
+      .project-info h3 { font-size: 2.1rem; }
       .project-info h3 { font-size: 1.5rem; }
       .timeline-item { grid-template-columns: 1fr; gap: 8px; padding: 23px 0; }
       .timeline-date { font-size: .78rem; }
@@ -421,31 +392,39 @@
       <div class="nav-links" id="navLinks">
         <a href="#work">Work</a>
         <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
         <a href="#about">About</a>
-        <a href="./AnnieHuynh_Resume.pdf" target="_blank" rel="noopener">Resume <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+        <a href="#resume">Resume</a>
         <a class="nav-contact" href="#contact">Let's talk <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
       </div>
     </nav>
   </header>
 
   <main>
-<section class="hero" id="top"> <div class="container hero-inner"> <div class="hero-copy" id="heroCopy"> <div class="availability"> <span class="availability-dot"></span> Software Engineering Graduate · Spring 2026 </div> <h1> <span class="name-line">Hi, I’m</span> <span class="name-line accent-name">Annie Huynh.</span> </h1> <p class="hero-subtitle"> I’m a <strong>frontend-focused Software Engineer</strong> who builds thoughtful, user-friendly interfaces with React and TypeScript, backed by experience with Java, Spring Boot, and REST APIs. </p> <div class="hero-actions"> <a class="button button-primary" href="#work"> Explore my work <i class="bi bi-arrow-down-right" aria-hidden="true"></i> </a> <a class="button button-secondary" href="./AnnieHuynh_Resume.pdf" target="_blank" rel="noopener"> View resume <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> </a> <a class="button button-secondary" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noopener"> LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i> </a> </div> </div> <div class="hero-bottom"> <span>React · TypeScript · Java · Spring Boot</span> <a class="scroll-cue" href="#work"> <span><i class="bi bi-arrow-down" aria-hidden="true"></i></span> Scroll to explore </a> </div> </div> </section>
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-copy" id="heroCopy">
+          <div class="availability"><span class="availability-dot"></span> Software engineering graduate · Spring 2026</div>
+          <h1><span class="name-line">Hi, I’m</span><span class="name-line accent-name">Annie Huynh.</span></h1>
+          <p class="hero-subtitle">I build thoughtful, user-focused interfaces and the systems behind them, with a focus on clean design, useful details, and making complex things feel simple.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">Explore my work <i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
+            <a class="button button-secondary" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noopener">Connect on LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="hero-bottom">
+          <span>Frontend · Full-stack · Product-minded</span>
+          <a class="scroll-cue" href="#work"><span><i class="bi bi-arrow-down" aria-hidden="true"></i></span> Scroll to explore</a>
+        </div>
+      </div>
+    </section>
 
     <section class="section work-section" id="work">
       <div class="container">
-        
-<div class="section-heading reveal">
-  <span class="eyebrow">Selected work</span>
-  <h2>Thoughtful products. Practical engineering.</h2>
-  <p>
-    Projects that bring together user-facing experiences, application
-    logic, and data. Each one reflects a different part of how I
-    approach building software.
-  </p>
-</div>
-
-
+        <div class="section-heading reveal">
+          <span class="eyebrow">Selected work</span>
+          <h2>Ideas, meet execution.</h2>
+          <p>A few projects where I brought interfaces, APIs, and real product needs together.</p>
+        </div>
 
         <div class="work-grid">
           <article class="project-card reveal reveal-delay-1">
@@ -458,30 +437,42 @@
                     <div class="mock-nav active"></div><div class="mock-nav"></div><div class="mock-nav"></div><div class="mock-nav"></div>
                   </div>
                   <div class="mock-content">
-                    <div class="mock-title"></div><div class="mock-caption"></div>
+                    <div class="mock-title"></div><div class="mock-caption"></div><div style="font:600 10px DM Sans,sans-serif;color:#777;margin-bottom:8px">Your semester at a glance</div>
                     <div class="mock-courses">
-                      <div class="mock-course"></div><div class="mock-course"></div>
-                      <div class="mock-course"></div><div class="mock-course"></div>
+                      <div class="mock-course"><b>COM S 319</b><small>Construction of User Interfaces</small></div><div class="mock-course"><b>SE 319</b><small>Software Construction</small></div>
+                      <div class="mock-course"><b>COM S 321</b><small>Introduction to Computer Architecture</small></div><div class="mock-course"><b>SE 339</b><small>Software Architecture</small></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-<div class="project-info"> <div class="project-meta"> <span>Full-stack academic planning</span> <span class="project-number">01 / 02</span> </div> <h3>CourseFlow</h3> <p> A course-planning application designed to help Iowa State students explore prerequisites and make more informed academic decisions in one place. </p> <ul class="project-details"> <li> Built the application interface with React Native, Expo, and TypeScript. </li> <li> Developed the backend with Java 17 and Spring Boot, backed by PostgreSQL. </li> <li> Worked on academic planning features, prerequisite relationships, and application authentication. </li> </ul> <div class="tags"> <span class="tag">React Native</span> <span class="tag">Expo</span> <span class="tag">TypeScript</span> <span class="tag">Java 17</span> <span class="tag">Spring Boot</span> <span class="tag">PostgreSQL</span> </div> <div class="project-links"> <a class="project-link" href="https://github.com/annieh00/courseflow" target="_blank" rel="noopener"> View source on GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i> </a> </div> </div>
+            <div class="project-info">
+              <div class="project-meta"><span>Academic planning platform</span><span class="project-number">01 / 02</span></div>
+              <h3>CourseFlow</h3>
+              <p>A cross-platform degree-planning app for Iowa State students that brings prerequisite exploration and semester planning into one experience. Built with React Native and TypeScript, with a Spring Boot backend and PostgreSQL database, CourseFlow makes course dependencies easier to understand and academic decisions easier to navigate.</p>
+              <div class="tags"><span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span></div>
+              <a class="project-link" href="https://github.com/annieh00/courseflow" target="_blank" rel="noopener">View on GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            </div>
           </article>
 
           <article class="project-card reveal reveal-delay-2">
             <div class="project-visual market-visual" aria-label="Illustration of a student marketplace">
               <div class="market-ui" aria-hidden="true">
-                <div class="market-top"><span class="market-logo">CyMarket</span><span class="market-search"></span></div>
+                <div class="market-top"><span class="market-logo">CyMarket <small style="display:block;font:400 9px DM Sans,sans-serif;color:#888;margin-top:3px">Find your next campus essential</small></span><span class="market-search"></span></div>
                 <div class="market-items">
-                  <div class="market-item"><div class="market-thumb"></div><div class="market-line"></div><div class="market-line short"></div></div>
-                  <div class="market-item"><div class="market-thumb"></div><div class="market-line"></div><div class="market-line short"></div></div>
-                  <div class="market-item"><div class="market-thumb"></div><div class="market-line"></div><div class="market-line short"></div></div>
+                  <div class="market-item"><div class="market-thumb"></div><div class="market-product-name">Desk lamp</div><div class="market-price">$12</div><div class="market-line short"></div></div>
+                  <div class="market-item"><div class="market-thumb"></div><div class="market-product-name">Mini fridge</div><div class="market-price">$55</div><div class="market-line short"></div></div>
+                  <div class="market-item"><div class="market-thumb"></div><div class="market-product-name">Textbooks</div><div class="market-price">$20</div><div class="market-line short"></div></div>
                 </div>
               </div>
             </div>
-<div class="project-info"> <div class="project-meta"> <span>Student marketplace</span> <span class="project-number">02 / 02</span> </div> <h3>CyMarket</h3> <p> A student marketplace concept focused on browsing listings, viewing item photos, and making it easier for campus communities to buy and sell. </p> <ul class="project-details"> <li> Focused on frontend development for marketplace posts and listing views. </li> <li> Worked with a MySQL database as part of the project. </li> <li> Contributed to the interface for browsing and viewing marketplace items. </li> </ul> <div class="tags"> <span class="tag">Java</span> <span class="tag">Android Studio</span> <span class="tag">MySQL</span> <span class="tag">UI Development</span> </div> <div class="project-links"> <a class="project-link" href="https://github.com/annieh00/cymarket" target="_blank" rel="noopener"> View source on GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i> </a> </div> <p class="project-note"> My contribution focused on frontend development. See the repository for the implementation and project structure. </p> </div>
+            <div class="project-info">
+              <div class="project-meta"><span>Student marketplace</span><span class="project-number">02 / 02</span></div>
+              <h3>CyMarket</h3>
+              <p>An Android marketplace experience designed around campus buying and selling. I built the Java frontend for browsing listings and viewing item details, with clear product cards and focused navigation that help students move from discovering an item to exploring it. The project uses MySQL to organize marketplace data.</p>
+              <div class="tags"><span class="tag">Android</span><span class="tag">Java</span><span class="tag">MySQL</span><span class="tag">UI Development</span></div>
+              <a class="project-link" href="https://github.com/annieh00/cymarket" target="_blank" rel="noopener">View on GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            </div>
           </article>
         </div>
       </div>
@@ -504,14 +495,16 @@
             <div>
               <h3>Software Engineer Intern</h3>
               <div class="timeline-company">Principal Financial Group · Case Management</div>
-<p> Built production onboarding-workflow features using React and TypeScript, including interactive components such as buttons, modals, and date inputs. Integrated frontend components with REST APIs, worked with deployment workflows, and collaborated with teammates in the U.S. and India using Agile practices. </p>            </div>
+              <p>Built React and TypeScript features for a production onboarding workflow, integrated UI components with REST APIs, and collaborated with U.S. and India teammates in an Agile environment.</p>
+            </div>
           </article>
           <article class="timeline-item reveal">
             <div class="timeline-date">Aug 2026 – Present</div>
             <div>
               <h3>Cell Phone Repair Technician / Sales Associate</h3>
               <div class="timeline-company">CPR Cell Phone Repair</div>
-<p> Diagnose device hardware and software issues, assist with repairs and component replacements, and explain repair options to customers. Strengthen hands-on troubleshooting and customer communication skills in a customer-facing role. </p>            </div>
+              <p>Diagnose device hardware and software issues, assist with repairs and component replacements, and help customers understand repair options.</p>
+            </div>
           </article>
           <article class="timeline-item reveal">
             <div class="timeline-date">Dec 2025 – May 2026</div>
@@ -541,6 +534,22 @@
       </div>
     </section>
 
+    <section class="section resume-section" id="resume">
+      <div class="container">
+        <div class="resume-panel reveal">
+          <div class="resume-copy">
+            <span class="eyebrow">Resume</span>
+            <h2>A closer look at my experience.</h2>
+            <p>Explore my software engineering experience, projects, education, and technical skills in one place.</p>
+          </div>
+          <div class="resume-actions">
+            <a class="button button-primary" href="./AnnieHuynh_Resume.pdf" target="_blank" rel="noopener">View resume <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            <a class="button button-secondary" href="./AnnieHuynh_Resume.pdf" download="AnnieHuynh_Resume.pdf">Download PDF <i class="bi bi-download" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section skills-section" id="skills">
       <div class="container">
         <div class="section-heading reveal">
@@ -549,40 +558,21 @@
           <p>The tools I’ve used to build applications, work with data, and understand what happens under the hood.</p>
         </div>
         <div class="skills-grid">
-      <article class="skill-card reveal">
-        <div class="skill-icon">
-          <i class="bi bi-window-stack" aria-hidden="true"></i>
-        </div>
-        <h3>Frontend Development</h3>
-        <p>
-          React, React Native, TypeScript, JavaScript, HTML, CSS,
-          responsive interfaces, reusable components, and
-          user-focused interaction design.
-        </p>
-      </article>
-
-      <article class="skill-card reveal reveal-delay-1">
-        <div class="skill-icon">
-          <i class="bi bi-braces" aria-hidden="true"></i>
-        </div>
-        <h3>Backend & Data</h3>
-        <p>
-          Java, Spring Boot, REST APIs, SQL, PostgreSQL, MySQL,
-          MongoDB, and application integration.
-        </p>
-      </article>
-
-      <article class="skill-card reveal reveal-delay-2">
-        <div class="skill-icon">
-          <i class="bi bi-terminal" aria-hidden="true"></i>
-        </div>
-        <h3>Tools & Systems</h3>
-        <p>
-          Git, Linux, Ubuntu, Python, C, JUnit, Android Studio,
-          VS Code, and introductory AWS deployment workflows.
-        </p>
-      </article>
-
+          <article class="skill-card reveal">
+            <div class="skill-icon"><i class="bi bi-window-stack" aria-hidden="true"></i></div>
+            <h3>Frontend</h3>
+            <p>React, React Native, TypeScript, JavaScript, HTML, CSS, responsive UI development, and accessible interaction patterns.</p>
+          </article>
+          <article class="skill-card reveal reveal-delay-1">
+            <div class="skill-icon"><i class="bi bi-braces" aria-hidden="true"></i></div>
+            <h3>Backend & APIs</h3>
+            <p>Java, Spring Boot, REST APIs, SQL, PostgreSQL, MySQL, MongoDB, and application integration.</p>
+          </article>
+          <article class="skill-card reveal reveal-delay-2">
+            <div class="skill-icon"><i class="bi bi-terminal" aria-hidden="true"></i></div>
+            <h3>Systems & Tools</h3>
+            <p>Python, C, Assembly, Linux, Git, JUnit, Android Studio, VS Code, and introductory AWS deployment workflows.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -596,9 +586,8 @@
         <div class="about-copy reveal reveal-delay-1">
           <span class="eyebrow">A little about me</span>
           <h2>I care about how software feels to use.</h2>
-          <p>I’m a Spring 2026 Software Engineering graduate from Iowa State University with a minor in Cybersecurity. I’m especially interested in frontend development, where I can combine problem-solving with building intuitive, polished user experiences. My experience with React, TypeScript, and API integration has also helped me understand how the frontend connects to the systems behind it.</p>
-
-<p>I enjoy making interfaces feel clear and cohesive, thinking through how people will actually use a product, and refining the details that make software easier to navigate. I’m looking for an entry-level software engineering role where I can contribute to meaningful products, learn from experienced developers, and continue growing as an engineer.</p>
+          <p>I’m a Software Engineering graduate from Iowa State University with a minor in Cybersecurity. I’m especially drawn to frontend development because I enjoy turning ideas into clear, thoughtful interfaces, but I also like understanding the APIs and systems that make them work.</p>
+          <p>I value curiosity, practical problem-solving, and the little details that make a product feel cohesive. I’m always looking for opportunities to keep learning and build software that genuinely helps people.</p>
           <div class="about-facts">
             <span class="about-fact">Iowa State University · 2026</span>
             <span class="about-fact">Software Engineering</span>
@@ -611,17 +600,11 @@
     <section class="contact-section" id="contact">
       <div class="container">
         <div class="contact-panel">
-          
-      <div class="reveal">
-        <span class="eyebrow">Get in touch</span>
-        <h2>Let’s build something useful.</h2>
-        <p>
-          I’m interested in entry-level software engineering roles
-          where I can contribute to a product, learn from a strong team,
-          and keep growing as an engineer.
-        </p>
-      </div>
-
+          <div class="reveal">
+            <span class="eyebrow">Get in touch</span>
+            <h2>Have something good in mind?</h2>
+            <p>I’m interested in opportunities to build useful software, learn from a thoughtful team, and make a meaningful contribution.</p>
+          </div>
           <div class="contact-actions reveal reveal-delay-1">
             <a class="button button-primary" href="mailto:anniehuynh65@gmail.com">Email me <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
             <a class="button button-secondary" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noopener">LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
@@ -655,12 +638,14 @@
     const updateHero = () => {
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!reduceMotion && window.innerWidth > 620) {
-        const progress = Math.min(Math.max(window.scrollY / (window.innerHeight * 0.82), 0), 1);
-        heroCopy.style.opacity = String(1 - progress * 0.72);
-        heroCopy.style.transform = `translateY(${-progress * 42}px) scale(${1 - progress * 0.018})`;
+        const progress = Math.min(Math.max(window.scrollY / (window.innerHeight * 0.68), 0), 1);
+        heroCopy.style.opacity = String(1 - progress * 0.9);
+        heroCopy.style.transform = `translateY(${-progress * 64}px) scale(${1 - progress * 0.025})`;
+        heroCopy.style.filter = `blur(${progress * 1.5}px)`;
       } else {
         heroCopy.style.opacity = '';
         heroCopy.style.transform = '';
+        heroCopy.style.filter = '';
       }
       ticking = false;
     };
@@ -702,6 +687,16 @@
         menuToggle.setAttribute('aria-label', 'Open navigation menu');
         menuToggle.innerHTML = '<i class="bi bi-list" aria-hidden="true"></i>';
       });
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+        menuToggle.innerHTML = '<i class="bi bi-list" aria-hidden="true"></i>';
+        menuToggle.focus();
+      }
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
