@@ -301,6 +301,351 @@
     outline: 3px solid rgba(124, 58, 237, 0.35);
     outline-offset: 3px;
   }
+
+  
+/* ========================================
+   MONOCHROME PORTFOLIO THEME
+   ======================================== */
+
+:root {
+  --ink: #f5f5f5;
+  --paper: #080808;
+  --muted: #a1a1aa;
+  --border: rgba(255, 255, 255, 0.12);
+  --accent: #ffffff;
+  --accent-2: #a3a3a3;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: #080808;
+  color: #f5f5f5;
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+::selection {
+  background: #f5f5f5;
+  color: #080808;
+}
+
+.muted,
+.text-muted {
+  color: #a1a1aa !important;
+}
+
+/* Navigation */
+.navbar {
+  background: rgba(8, 8, 8, 0.88) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.navbar-brand {
+  color: #fff !important;
+  letter-spacing: -0.04em;
+}
+
+.nav-link {
+  color: #a1a1aa !important;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #fff !important;
+}
+
+.navbar-toggler {
+  border-color: #444 !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Hero */
+.hero {
+  background:
+    radial-gradient(
+      ellipse at 80% 15%,
+      rgba(255, 255, 255, 0.075),
+      transparent 38%
+    ),
+    linear-gradient(145deg, #080808 0%, #101010 100%);
+  padding: 8rem 0 7rem;
+}
+
+.hero::after {
+  background: rgba(255, 255, 255, 0.035);
+  filter: blur(100px);
+}
+
+.display-title {
+  color: #fff;
+  letter-spacing: -0.065em;
+  line-height: 1.05;
+}
+
+.gradient-text {
+  background: none;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+}
+
+.eyebrow {
+  color: #d4d4d8;
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.035);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.hero-card {
+  background: #111111;
+  border: 1px solid #303030;
+  border-radius: 1rem;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+.profile-img {
+  border: 2px solid #333;
+  border-radius: 16px;
+  filter: grayscale(100%);
+}
+
+/* Sections */
+.section {
+  padding: 6rem 0;
+}
+
+.bg-light {
+  background: #0d0d0d !important;
+}
+
+h2 {
+  color: #fafafa;
+  letter-spacing: -0.04em;
+}
+
+h3,
+h4 {
+  color: #f5f5f5;
+  letter-spacing: -0.025em;
+}
+
+.divider {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Cards */
+.card-clean {
+  background: #111111 !important;
+  border: 1px solid #292929;
+  border-radius: 1rem;
+  box-shadow: none;
+  backdrop-filter: none;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.card-clean:hover {
+  background: #141414 !important;
+  border-color: #555;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px);
+}
+
+.card-clean .muted {
+  color: #a1a1aa !important;
+}
+
+/* Monochrome technology badges */
+.tech-badge {
+  color: #d4d4d8;
+  background: #1c1c1c;
+  border: 1px solid #303030;
+  border-radius: 6px !important;
+  font-size: 0.76rem;
+  font-weight: 500;
+  padding: 0.3rem 0.55rem;
+}
+
+/* Buttons */
+.btn-gradient,
+.btn-light {
+  color: #080808 !important;
+  background: #f5f5f5 !important;
+  border: 1px solid #f5f5f5 !important;
+  box-shadow: none;
+}
+
+.btn-gradient:hover,
+.btn-light:hover {
+  color: #fff !important;
+  background: #222 !important;
+  border-color: #555 !important;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.btn-ink,
+.btn-dark {
+  color: #080808 !important;
+  background: #f5f5f5 !important;
+  border: 1px solid #f5f5f5 !important;
+}
+
+.btn-ink:hover,
+.btn-dark:hover {
+  color: #fff !important;
+  background: #222 !important;
+  border-color: #555 !important;
+}
+
+.btn-outline-ink,
+.btn-outline-dark {
+  color: #f5f5f5 !important;
+  background: transparent !important;
+  border: 1px solid #444 !important;
+}
+
+.btn-outline-ink:hover,
+.btn-outline-dark:hover {
+  color: #080808 !important;
+  background: #f5f5f5 !important;
+  border-color: #f5f5f5 !important;
+}
+
+.btn-outline-light {
+  color: #f5f5f5 !important;
+  border-color: #555 !important;
+  background: transparent !important;
+}
+
+.btn-outline-light:hover {
+  color: #080808 !important;
+  background: #f5f5f5 !important;
+  border-color: #f5f5f5 !important;
+}
+
+.btn,
+.project-link {
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Project links */
+.project-link {
+  color: #f5f5f5;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.project-link:hover {
+  color: #a1a1aa;
+}
+
+.project-link i {
+  transition: transform 0.2s ease;
+}
+
+.project-link:hover i {
+  transform: translate(3px, -3px);
+}
+
+/* Experience timeline */
+.timeline-dot {
+  background: #f5f5f5;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.07);
+}
+
+/* Skills */
+.skill-group h3 {
+  color: #a1a1aa;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+}
+
+.skill-group p {
+  color: #e4e4e7;
+}
+
+/* Resume */
+iframe {
+  background: #fff;
+}
+
+#resume .card-clean {
+  padding: 0.5rem !important;
+}
+
+/* Footer */
+footer {
+  background: #080808;
+  border-color: #292929 !important;
+}
+
+/* Back-to-top button */
+#backToTop {
+  background: #f5f5f5;
+  color: #080808;
+  border: 1px solid #f5f5f5;
+  border-radius: 50%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+#backToTop:hover {
+  background: #d4d4d8;
+}
+
+/* Accessibility */
+:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 5rem 0 4rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .display-title {
+    letter-spacing: -0.05em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+  
 </style>
 
 </head>
