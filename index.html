@@ -1,1387 +1,635 @@
 <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Annie Huynh is a software engineer focused on building thoughtful, user-focused software with React, TypeScript, Java, and Spring Boot.">
+  <meta name="theme-color" content="#f7f7f5">
+  <title>Annie Huynh | Software Engineer</title>
 
-<html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width, initial-scale=1" /> <meta name="description" content="Annie Huynh is a software engineer focused on frontend and full-stack development with React, TypeScript, Java, and Spring Boot." /> <title>Annie Huynh | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-<link
-  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-  rel="stylesheet"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-/>
-
-<link
-  rel="icon"
-  href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='63' font-size='52' text-anchor='middle' fill='white' font-family='Poppins,Arial'%3EA%3C/text%3E%3C/svg%3E"
-/>
-
-<style>
-  :root {
-    --ink: #0b0b0c;
-    --paper: #ffffff;
-    --muted: #6b7280;
-    --border: rgba(0, 0, 0, 0.1);
-    --accent: #7c3aed;
-    --accent-2: #06b6d4;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  .navbar-brand {
-    font-family: Poppins, Inter, sans-serif;
-  }
-
-  h2 {
-    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-  }
-
-  .muted {
-    color: var(--muted);
-  }
-
-  .section {
-    padding: 5rem 0;
-  }
-
-  @media (max-width: 768px) {
-    .section {
-      padding: 3.5rem 0;
+  <style>
+    :root {
+      --paper: #f7f7f5;
+      --surface: #ffffff;
+      --ink: #171717;
+      --muted: #696a70;
+      --line: rgba(20, 20, 20, .11);
+      --accent: #3859d7;
+      --accent-soft: #edf0ff;
+      --dark: #171819;
+      --dark-muted: #b8bbc2;
+      --radius: 24px;
+      --content: 1160px;
+      --shadow: 0 20px 60px rgba(22, 25, 35, .07);
     }
-  }
 
-  .navbar {
-    backdrop-filter: blur(12px);
-  }
-
-  .nav-link {
-    opacity: 0.85;
-    transition: opacity 0.15s ease, transform 0.15s ease;
-  }
-
-  .nav-link:hover {
-    opacity: 1;
-    transform: translateY(-1px);
-  }
-
-  .hero {
-    position: relative;
-    overflow: hidden;
-    color: #fff;
-    padding: 6.5rem 0 5.5rem;
-    background:
-      radial-gradient(circle at 85% 20%, rgba(124, 58, 237, 0.18), transparent 30%),
-      radial-gradient(circle at 95% 80%, rgba(6, 182, 212, 0.1), transparent 28%),
-      linear-gradient(120deg, #0b0b0c 0%, #16161b 55%, #101014 100%);
-  }
-
-  .hero::after {
-    content: "";
-    position: absolute;
-    width: 30rem;
-    height: 30rem;
-    right: -12rem;
-    top: -10rem;
-    border-radius: 50%;
-    background: rgba(124, 58, 237, 0.1);
-    filter: blur(70px);
-    pointer-events: none;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-  }
-
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.45rem 0.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.04);
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .display-title {
-    font-family: Poppins, Inter, sans-serif;
-    font-size: clamp(2.4rem, 6vw, 4.6rem);
-    line-height: 1.02;
-    letter-spacing: -0.045em;
-    font-weight: 700;
-  }
-
-  .gradient-text {
-    background: linear-gradient(90deg, #fff, #d8d0ff 55%, #b8f2f7);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  .hero-card {
-    position: relative;
-    z-index: 2;
-    padding: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1.25rem;
-    background: rgba(0, 0, 0, 0.42);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  }
-
-  .profile-img {
-    width: 86px;
-    height: 86px;
-    object-fit: cover;
-    border-radius: 18px;
-    border: 4px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .btn-gradient {
-    color: #fff;
-    border: 0;
-    background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.18);
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-  }
-
-  .btn-gradient:hover {
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.24);
-  }
-
-  .pill {
-    border-radius: 999px !important;
-  }
-
-  .card-clean {
-    height: 100%;
-    border: 1px solid var(--border);
-    border-radius: 1.25rem;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.92),
-      rgba(255, 255, 255, 0.78)
-    );
-    backdrop-filter: blur(6px) saturate(1.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .card-clean:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 36px rgba(11, 11, 12, 0.08);
-  }
-
-  .btn-ink {
-    background: var(--ink);
-    color: #fff;
-    border: 1px solid var(--ink);
-  }
-
-  .btn-ink:hover {
-    background: #111113;
-    color: #fff;
-  }
-
-  .btn-outline-ink {
-    border: 1px solid var(--ink);
-    color: var(--ink);
-    background: transparent;
-  }
-
-  .btn-outline-ink:hover {
-    background: var(--ink);
-    color: #fff;
-  }
-
-  .tech-badge {
-    display: inline-block;
-    padding: 0.32rem 0.6rem;
-    border-radius: 999px;
-    background: linear-gradient(
-      90deg,
-      rgba(124, 58, 237, 0.1),
-      rgba(6, 182, 212, 0.08)
-    );
-    font-size: 0.82rem;
-    font-weight: 600;
-  }
-
-  .project-link {
-    color: var(--ink);
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .project-link:hover {
-    color: var(--accent);
-  }
-
-  .divider {
-    border-top: 1px solid var(--border);
-  }
-
-  .timeline-dot {
-    width: 10px;
-    height: 10px;
-    flex: 0 0 10px;
-    margin-top: 0.55rem;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  }
-
-  .skill-group h3 {
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-
-  .reveal.in-view {
-    opacity: 1;
-    transform: none;
-  }
-
-  #backToTop {
-    position: fixed;
-    right: 20px;
-    bottom: 24px;
-    width: 44px;
-    height: 44px;
-    border: 0;
-    border-radius: 12px;
-    background: rgba(11, 11, 12, 0.82);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: translateY(8px);
-    pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    z-index: 9999;
-  }
-
-  #backToTop.show {
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
-  }
-
-  :focus-visible {
-    outline: 3px solid rgba(124, 58, 237, 0.35);
-    outline-offset: 3px;
-  }
-
-  
-/* ========================================
-   MONOCHROME PORTFOLIO THEME
-   ======================================== */
-
-:root {
-  --ink: #f5f5f5;
-  --paper: #080808;
-  --muted: #a1a1aa;
-  --border: rgba(255, 255, 255, 0.12);
-  --accent: #ffffff;
-  --accent-2: #a3a3a3;
-}
-
-/* Base */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-body {
-  background: #080808;
-  color: #f5f5f5;
-  font-family: Inter, system-ui, sans-serif;
-  line-height: 1.7;
-}
-
-::selection {
-  background: #f5f5f5;
-  color: #080808;
-}
-
-.muted,
-.text-muted {
-  color: #a1a1aa !important;
-}
-
-/* Navigation */
-.navbar {
-  background: rgba(8, 8, 8, 0.88) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-
-.navbar-brand {
-  color: #fff !important;
-  letter-spacing: -0.04em;
-}
-
-.nav-link {
-  color: #a1a1aa !important;
-  transition: color 0.2s ease;
-}
-
-.nav-link:hover,
-.nav-link:focus-visible {
-  color: #fff !important;
-}
-
-.navbar-toggler {
-  border-color: #444 !important;
-}
-
-.navbar-toggler:focus {
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
-}
-
-/* Hero */
-.hero {
-  background:
-    radial-gradient(
-      ellipse at 80% 15%,
-      rgba(255, 255, 255, 0.075),
-      transparent 38%
-    ),
-    linear-gradient(145deg, #080808 0%, #101010 100%);
-  padding: 8rem 0 7rem;
-}
-
-.hero::after {
-  background: rgba(255, 255, 255, 0.035);
-  filter: blur(100px);
-}
-
-.display-title {
-  color: #fff;
-  letter-spacing: -0.065em;
-  line-height: 1.05;
-}
-
-.gradient-text {
-  background: none;
-  color: #fff;
-  -webkit-text-fill-color: #fff;
-}
-
-.eyebrow {
-  color: #d4d4d8;
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.035);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-}
-
-.hero-card {
-  background: #111111;
-  border: 1px solid #303030;
-  border-radius: 1rem;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
-}
-
-.profile-img {
-  border: 2px solid #333;
-  border-radius: 16px;
-  filter: grayscale(100%);
-}
-
-/* Sections */
-.section {
-  padding: 6rem 0;
-}
-
-.bg-light {
-  background: #0d0d0d !important;
-}
-
-h2 {
-  color: #fafafa;
-  letter-spacing: -0.04em;
-}
-
-h3,
-h4 {
-  color: #f5f5f5;
-  letter-spacing: -0.025em;
-}
-
-.divider {
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-/* Cards */
-.card-clean {
-  background: #111111 !important;
-  border: 1px solid #292929;
-  border-radius: 1rem;
-  box-shadow: none;
-  backdrop-filter: none;
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    transform 0.2s ease;
-}
-
-.card-clean:hover {
-  background: #141414 !important;
-  border-color: #555;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.25);
-  transform: translateY(-4px);
-}
-
-.card-clean .muted {
-  color: #a1a1aa !important;
-}
-
-/* Monochrome technology badges */
-.tech-badge {
-  color: #d4d4d8;
-  background: #1c1c1c;
-  border: 1px solid #303030;
-  border-radius: 6px !important;
-  font-size: 0.76rem;
-  font-weight: 500;
-  padding: 0.3rem 0.55rem;
-}
-
-/* Buttons */
-.btn-gradient,
-.btn-light {
-  color: #080808 !important;
-  background: #f5f5f5 !important;
-  border: 1px solid #f5f5f5 !important;
-  box-shadow: none;
-}
-
-.btn-gradient:hover,
-.btn-light:hover {
-  color: #fff !important;
-  background: #222 !important;
-  border-color: #555 !important;
-  transform: translateY(-2px);
-  box-shadow: none;
-}
-
-.btn-ink,
-.btn-dark {
-  color: #080808 !important;
-  background: #f5f5f5 !important;
-  border: 1px solid #f5f5f5 !important;
-}
-
-.btn-ink:hover,
-.btn-dark:hover {
-  color: #fff !important;
-  background: #222 !important;
-  border-color: #555 !important;
-}
-
-.btn-outline-ink,
-.btn-outline-dark {
-  color: #f5f5f5 !important;
-  background: transparent !important;
-  border: 1px solid #444 !important;
-}
-
-.btn-outline-ink:hover,
-.btn-outline-dark:hover {
-  color: #080808 !important;
-  background: #f5f5f5 !important;
-  border-color: #f5f5f5 !important;
-}
-
-.btn-outline-light {
-  color: #f5f5f5 !important;
-  border-color: #555 !important;
-  background: transparent !important;
-}
-
-.btn-outline-light:hover {
-  color: #080808 !important;
-  background: #f5f5f5 !important;
-  border-color: #f5f5f5 !important;
-}
-
-.btn,
-.project-link {
-  transition:
-    color 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-/* Project links */
-.project-link {
-  color: #f5f5f5;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.project-link:hover {
-  color: #a1a1aa;
-}
-
-.project-link i {
-  transition: transform 0.2s ease;
-}
-
-.project-link:hover i {
-  transform: translate(3px, -3px);
-}
-
-/* Experience timeline */
-.timeline-dot {
-  background: #f5f5f5;
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.07);
-}
-
-/* Skills */
-.skill-group h3 {
-  color: #a1a1aa;
-  letter-spacing: 0.12em;
-  font-size: 0.72rem;
-}
-
-.skill-group p {
-  color: #e4e4e7;
-}
-
-/* Resume */
-iframe {
-  background: #fff;
-}
-
-#resume .card-clean {
-  padding: 0.5rem !important;
-}
-
-/* Footer */
-footer {
-  background: #080808;
-  border-color: #292929 !important;
-}
-
-/* Back-to-top button */
-#backToTop {
-  background: #f5f5f5;
-  color: #080808;
-  border: 1px solid #f5f5f5;
-  border-radius: 50%;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-}
-
-#backToTop:hover {
-  background: #d4d4d8;
-}
-
-/* Accessibility */
-:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 4px;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    padding: 5rem 0 4rem;
-  }
-
-  .section {
-    padding: 4rem 0;
-  }
-
-  .display-title {
-    letter-spacing: -0.05em;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-  
-</style>
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body, button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    img { max-width: 100%; display: block; }
+    ::selection { background: #dce3ff; color: #101010; }
+
+    .container { width: min(var(--content), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      color: var(--muted); font-size: .76rem; font-weight: 700;
+      letter-spacing: .13em; text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: ""; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent); display: inline-block;
+    }
+    .section { padding: 118px 0; }
+    .section-heading {
+      max-width: 740px; margin: 0 0 48px;
+    }
+    .section-heading h2 {
+      margin: 17px 0 14px; font: 700 clamp(2.3rem, 5vw, 4.4rem)/1.04 "Manrope", sans-serif;
+      letter-spacing: -.065em;
+    }
+    .section-heading p { color: var(--muted); max-width: 610px; font-size: 1.08rem; line-height: 1.8; margin: 0; }
+    .text-link {
+      display: inline-flex; align-items: center; gap: 8px; font-weight: 700;
+      transition: gap .2s ease, color .2s ease;
+    }
+    .text-link:hover { gap: 13px; color: var(--accent); }
+
+    /* Navigation */
+    .nav-wrap {
+      position: fixed; inset: 0 0 auto; z-index: 1000;
+      padding: 16px 0; transition: background .25s ease, border-color .25s ease, padding .25s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .nav-wrap.scrolled {
+      background: rgba(247, 247, 245, .86); backdrop-filter: blur(18px);
+      border-color: var(--line); padding: 10px 0;
+    }
+    .nav {
+      width: min(var(--content), calc(100% - 48px)); margin: auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .brand {
+      font: 800 1.03rem "Manrope", sans-serif; letter-spacing: -.05em;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .brand-mark {
+      display: grid; place-items: center; width: 33px; height: 33px;
+      border-radius: 11px; color: #fff; background: var(--ink); font-size: .78rem;
+      letter-spacing: -.04em;
+    }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a { font-size: .88rem; color: #52535a; transition: color .2s ease; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links .nav-contact {
+      padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px;
+      color: var(--ink); font-weight: 700;
+    }
+    .nav-links .nav-contact:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .menu-toggle {
+      display: none; border: 1px solid var(--line); background: var(--surface);
+      width: 42px; height: 42px; border-radius: 50%; cursor: pointer;
+    }
+
+    /* Scroll-driven opening */
+    .hero {
+      min-height: 100svh; position: relative; overflow: clip;
+      display: flex; align-items: center; padding: 130px 0 80px;
+      background:
+        radial-gradient(ellipse at 78% 42%, rgba(71, 98, 225, .10), transparent 31%),
+        radial-gradient(ellipse at 92% 18%, rgba(180, 193, 255, .16), transparent 28%),
+        var(--paper);
+    }
+    .hero::before {
+      content: ""; position: absolute; width: min(46vw, 650px); aspect-ratio: 1;
+      border: 1px solid rgba(56, 89, 215, .10); border-radius: 50%;
+      right: -8%; top: 14%; pointer-events: none;
+    }
+    .hero::after {
+      content: ""; position: absolute; width: min(33vw, 470px); aspect-ratio: 1;
+      border: 1px solid rgba(56, 89, 215, .08); border-radius: 50%;
+      right: 0; top: 25%; pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; width: 100%; }
+    .hero-copy { max-width: 920px; }
+    .availability {
+      display: inline-flex; align-items: center; gap: 10px; padding: 9px 13px;
+      background: rgba(255,255,255,.74); border: 1px solid var(--line);
+      border-radius: 999px; color: #51525a; font-size: .83rem; margin-bottom: 30px;
+      box-shadow: 0 5px 20px rgba(20,20,20,.025);
+    }
+    .availability-dot { width: 7px; height: 7px; border-radius: 50%; background: #3a9b6c; box-shadow: 0 0 0 4px rgba(58,155,108,.12); }
+    .hero h1 {
+      max-width: 940px; margin: 0; font: 700 clamp(4rem, 9.5vw, 8.7rem)/.94 "Manrope", sans-serif;
+      letter-spacing: -.09em;
+    }
+    .hero h1 .name-line { display: block; }
+    .hero h1 .accent-name { color: var(--accent); }
+    .hero-subtitle {
+      max-width: 580px; margin: 28px 0 0; color: #62636a;
+      font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.7;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; margin-top: 34px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 19px; border-radius: 999px; border: 1px solid transparent;
+      font-weight: 700; font-size: .9rem; transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--ink); color: #fff; }
+    .button-primary:hover { background: var(--accent); }
+    .button-secondary { border-color: var(--line); background: rgba(255,255,255,.64); }
+    .button-secondary:hover { border-color: rgba(56,89,215,.4); background: #fff; }
+    .hero-bottom {
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      margin-top: clamp(70px, 12vh, 120px); color: #777880; font-size: .78rem;
+      letter-spacing: .1em; text-transform: uppercase;
+    }
+    .scroll-cue { display: inline-flex; align-items: center; gap: 12px; }
+    .scroll-cue span {
+      display: inline-grid; place-items: center; width: 34px; height: 34px;
+      border: 1px solid var(--line); border-radius: 50%; color: var(--ink);
+      animation: bob 2s ease-in-out infinite;
+    }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+
+    /* Content reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: .08s; }
+    .reveal-delay-2 { transition-delay: .16s; }
+    .reveal-delay-3 { transition-delay: .24s; }
+
+    /* Selected work */
+    .work-section { background: #fff; border-top: 1px solid rgba(20,20,20,.04); }
+    .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .project-card {
+      position: relative; min-width: 0; overflow: hidden; border: 1px solid var(--line);
+      border-radius: var(--radius); background: #fafaf9; transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+    .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(56,89,215,.22); }
+    .project-visual {
+      min-height: 300px; position: relative; overflow: hidden; padding: 30px;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #f0f2ff, #f8f8f7 70%);
+    }
+    .project-visual.market-visual { background: linear-gradient(135deg, #f2f1ed, #f8f8f7 72%); }
+    .browser-window {
+      width: min(100%, 410px); overflow: hidden; background: #fff; border: 1px solid rgba(20,20,20,.12);
+      border-radius: 13px; box-shadow: 0 22px 55px rgba(30,36,70,.12); transform: rotate(-2deg);
+      transition: transform .35s ease;
+    }
+    .project-card:hover .browser-window { transform: rotate(0) scale(1.02); }
+    .browser-bar { display: flex; align-items: center; gap: 5px; height: 30px; padding: 0 12px; border-bottom: 1px solid #eee; }
+    .browser-bar i { width: 6px; height: 6px; border-radius: 50%; background: #d7d8dc; }
+    .mock-app { display: grid; grid-template-columns: 90px 1fr; min-height: 190px; }
+    .mock-sidebar { padding: 14px 9px; background: #f7f8fc; border-right: 1px solid #edf0f4; }
+    .mock-logo { width: 28px; height: 7px; border-radius: 4px; background: var(--accent); margin: 0 0 18px 4px; }
+    .mock-nav { height: 6px; width: 54px; border-radius: 4px; background: #dfe2ec; margin: 11px 4px; }
+    .mock-nav.active { background: #aab8ff; width: 62px; }
+    .mock-content { padding: 17px; }
+    .mock-title { width: 60%; height: 9px; background: #292c38; border-radius: 5px; margin-bottom: 7px; }
+    .mock-caption { width: 78%; height: 5px; background: #e1e3e9; border-radius: 5px; margin-bottom: 16px; }
+    .mock-courses { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .mock-course { min-height: 55px; border: 1px solid #e8eaf0; border-radius: 7px; padding: 8px; }
+    .mock-course::before { content: ""; display: block; width: 23px; height: 5px; border-radius: 4px; background: #c7d0ff; margin-bottom: 8px; }
+    .mock-course::after { content: ""; display: block; width: 80%; height: 5px; border-radius: 4px; background: #eceef3; }
+    .market-ui { width: min(100%, 410px); background: #fff; border: 1px solid rgba(20,20,20,.1); border-radius: 14px; padding: 16px; box-shadow: 0 22px 55px rgba(20,20,20,.10); transform: rotate(2deg); transition: transform .35s ease; }
+    .project-card:hover .market-ui { transform: rotate(0) scale(1.02); }
+    .market-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid #eee; }
+    .market-logo { font: 800 13px "Manrope", sans-serif; letter-spacing: -.04em; }
+    .market-search { width: 100px; height: 19px; background: #f3f3f1; border-radius: 6px; }
+    .market-items { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 14px; }
+    .market-item { min-width: 0; }
+    .market-thumb { aspect-ratio: 1 / .82; border-radius: 8px; background: linear-gradient(135deg,#e4e5e2,#f5f4f0); margin-bottom: 8px; position: relative; overflow: hidden; }
+    .market-item:nth-child(2) .market-thumb { background: linear-gradient(135deg,#e9e8f1,#f7f6f3); }
+    .market-item:nth-child(3) .market-thumb { background: linear-gradient(135deg,#e6ece7,#f7f6f3); }
+    .market-thumb::after { content: ""; position: absolute; width: 36%; height: 42%; left: 32%; top: 26%; border-radius: 5px; background: rgba(90,93,102,.18); transform: rotate(-8deg); }
+    .market-line { height: 5px; width: 85%; border-radius: 4px; background: #dfe0df; margin-bottom: 5px; }
+    .market-line.short { width: 48%; background: #eeefed; }
+    .project-info { padding: 28px 30px 30px; }
+    .project-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--muted); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    .project-number { color: #9a9ba2; }
+    .project-info h3 { font: 700 1.7rem "Manrope", sans-serif; letter-spacing: -.055em; margin: 16px 0 10px; }
+    .project-info p { color: var(--muted); line-height: 1.75; margin: 0 0 20px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 23px; }
+    .tag { display: inline-flex; padding: 7px 10px; border-radius: 999px; background: #f0f1f4; color: #555762; font-size: .75rem; font-weight: 600; }
+    .project-link { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; font-weight: 700; }
+    .project-link:hover { color: var(--accent); }
+
+    /* Experience */
+    .experience-section { background: var(--paper); }
+    .experience-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 70px; align-items: start; }
+    .experience-intro { position: sticky; top: 120px; }
+    .experience-intro p { max-width: 330px; color: var(--muted); line-height: 1.8; }
+    .timeline { border-top: 1px solid var(--line); }
+    .timeline-item { display: grid; grid-template-columns: 135px 1fr; gap: 22px; padding: 27px 0; border-bottom: 1px solid var(--line); }
+    .timeline-date { color: #777880; font-size: .82rem; padding-top: 4px; }
+    .timeline-item h3 { margin: 0 0 5px; font: 700 1.12rem "Manrope", sans-serif; letter-spacing: -.03em; }
+    .timeline-company { color: var(--accent); font-size: .88rem; font-weight: 600; margin-bottom: 12px; }
+    .timeline-item p { color: var(--muted); line-height: 1.75; margin: 0; font-size: .95rem; }
+
+    /* Skills */
+    .skills-section { background: #fff; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .skill-card { padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+    .skill-icon { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 14px; background: var(--accent-soft); color: var(--accent); font-size: 1.1rem; margin-bottom: 22px; }
+    .skill-card h3 { margin: 0 0 12px; font: 700 1.1rem "Manrope", sans-serif; letter-spacing: -.03em; }
+    .skill-card p { color: var(--muted); line-height: 1.8; font-size: .92rem; margin: 0; }
+
+    /* About and contact */
+    .about-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 70px; align-items: start; }
+    .about-photo-wrap { max-width: 330px; }
+    .about-photo {
+      width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px;
+      background: #e9e9e7; border: 1px solid var(--line);
+    }
+    .photo-caption { color: var(--muted); font-size: .8rem; margin-top: 12px; }
+    .about-copy h2 { font: 700 clamp(2.2rem, 4vw, 3.8rem)/1.08 "Manrope", sans-serif; letter-spacing: -.065em; margin: 14px 0 22px; }
+    .about-copy p { color: var(--muted); line-height: 1.9; font-size: 1.02rem; }
+    .about-facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+    .about-fact { padding: 10px 13px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.55); font-size: .82rem; font-weight: 600; }
+
+    .contact-section { padding: 90px 0 40px; background: var(--dark); color: #fff; }
+    .contact-panel { display: flex; align-items: end; justify-content: space-between; gap: 40px; padding-bottom: 70px; }
+    .contact-panel .eyebrow { color: #b8bbc2; }
+    .contact-panel h2 { max-width: 720px; font: 700 clamp(3rem, 7vw, 6.8rem)/.98 "Manrope", sans-serif; letter-spacing: -.08em; margin: 20px 0; }
+    .contact-panel p { color: var(--dark-muted); max-width: 500px; line-height: 1.8; }
+    .contact-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 190px; }
+    .contact-section .button-primary { background: #fff; color: var(--ink); }
+    .contact-section .button-primary:hover { background: #dfe5ff; }
+    .contact-section .button-secondary { color: #fff; border-color: rgba(255,255,255,.2); background: transparent; }
+    .contact-section .button-secondary:hover { background: rgba(255,255,255,.08); }
+    .footer {
+      display: flex; justify-content: space-between; gap: 20px; padding: 24px 0 0;
+      border-top: 1px solid rgba(255,255,255,.13); color: #a5a7ad; font-size: .8rem;
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer a:hover { color: #fff; }
+
+    @media (max-width: 850px) {
+      .section { padding: 88px 0; }
+      .hero h1 { font-size: clamp(3.7rem, 12vw, 6.4rem); }
+      .work-grid { grid-template-columns: 1fr; }
+      .project-visual { min-height: 280px; }
+      .experience-layout, .about-grid { grid-template-columns: 1fr; gap: 35px; }
+      .experience-intro { position: static; }
+      .about-photo-wrap { max-width: 260px; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .contact-panel { align-items: flex-start; flex-direction: column; }
+      .contact-actions { flex-direction: row; flex-wrap: wrap; }
+    }
+    @media (max-width: 620px) {
+      .container, .nav { width: min(100% - 34px, var(--content)); }
+      .nav-wrap { padding: 12px 0; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .nav-links {
+        display: none; position: absolute; top: calc(100% + 1px); left: 17px; right: 17px;
+        padding: 17px; background: rgba(255,255,255,.97); backdrop-filter: blur(18px);
+        border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow);
+        align-items: stretch; gap: 0; flex-direction: column;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 13px 10px; }
+      .nav-links .nav-contact { margin-top: 7px; text-align: center; }
+      .hero { min-height: 92svh; padding: 115px 0 42px; }
+      .hero::before { width: 90vw; right: -52%; top: 18%; }
+      .hero::after { width: 70vw; right: -38%; top: 27%; }
+      .availability { margin-bottom: 25px; font-size: .75rem; }
+      .hero h1 { font-size: clamp(3.5rem, 16vw, 5.5rem); }
+      .hero-subtitle { font-size: 1.04rem; }
+      .hero-bottom { margin-top: 65px; font-size: .68rem; }
+      .section { padding: 76px 0; }
+      .section-heading { margin-bottom: 32px; }
+      .section-heading h2 { font-size: clamp(2.5rem, 12vw, 3.6rem); }
+      .project-visual { min-height: 235px; padding: 18px; }
+      .project-info { padding: 23px; }
+      .project-info h3 { font-size: 1.5rem; }
+      .timeline-item { grid-template-columns: 1fr; gap: 8px; padding: 23px 0; }
+      .timeline-date { font-size: .78rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skill-card { padding: 22px; }
+      .contact-section { padding-top: 72px; }
+      .contact-panel { padding-bottom: 48px; }
+      .contact-panel h2 { font-size: clamp(3.2rem, 15vw, 5rem); }
+      .contact-actions { flex-direction: column; }
+      .footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
 
-<body> <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top"> <div class="container py-2"> <a class="navbar-brand fw-semibold" href="#top">Annie Huynh</a>
-
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#nav"
-      aria-controls="nav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-        <li class="nav-item">
-          <a class="nav-link" href="#projects">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#experience">Experience</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#skills">Skills</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-sm btn-light pill ms-lg-2" href="#contact">
-            Contact
-          </a>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link text-white"
-            href="https://linkedin.com/in/anniehuynh4"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <i class="bi bi-linkedin"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link text-white"
-            href="https://github.com/annieh00"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <i class="bi bi-github"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<header id="top" class="hero">
-  <div class="container hero-content">
-    <div class="row align-items-center gy-5">
-      <div class="col-lg-8">
-        <div class="eyebrow mb-4">
-          <span>Software Engineering Graduate</span>
-          <span class="opacity-50">•</span>
-          <span>May 2026</span>
-        </div>
-
-        <h1 class="display-title mb-4">
-          Building thoughtful, user-focused software.
-        </h1>
-
-        <p class="lead text-white-50 mb-4" style="max-width: 58ch;">
-          I'm <span class="text-white fw-semibold">Annie Huynh</span>, a
-          software engineer focused on
-          <span class="text-white">frontend and full-stack development</span>.
-          I enjoy building intuitive interfaces with React and TypeScript
-          and connecting them to reliable backend systems with Java and
-          Spring Boot.
-        </p>
-
-        <div class="d-flex flex-wrap gap-2">
-          <a class="btn btn-light btn-lg pill px-4" href="#projects">
-            View Projects
-          </a>
-          <a
-            class="btn btn-gradient btn-lg pill px-4"
-            href="./AnnieHuynh_Resume.pdf
-          "
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Resume
-          </a>
-          <a
-            class="btn btn-outline-light btn-lg pill px-4"
-            href="https://linkedin.com/in/anniehuynh4"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-        </div>
+<body>
+  <header class="nav-wrap" id="siteNav">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Annie Huynh home">
+        <span class="brand-mark">AH</span>
+        <span>Annie Huynh</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">
+        <i class="bi bi-list" aria-hidden="true"></i>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#about">About</a>
+        <a href="./AnnieHuynh_Resume.pdf" target="_blank" rel="noopener">Resume <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+        <a class="nav-contact" href="#contact">Let's talk <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
       </div>
+    </nav>
+  </header>
 
-      <div class="col-lg-4">
-        <div class="hero-card">
-          <div class="d-flex align-items-center gap-3 mb-4">
-            <img
-              class="profile-img"
-              src="./pictures/IMG_5997.jpeg"
-              alt="Annie Huynh"
-            />
-
-            <div>
-              <div class="fw-semibold">Annie Huynh</div>
-              <div class="small text-white-50">
-                Frontend & Full-Stack Software Engineer
-              </div>
-            </div>
-          </div>
-
-          <div class="small text-uppercase text-white-50 mb-2">
-            Currently seeking
-          </div>
-          <div class="fw-semibold mb-4">
-            Full-time software engineering opportunities
-          </div>
-
-          <div class="small text-uppercase text-white-50 mb-2">
-            Primary focus
-          </div>
-
-          <div class="d-flex flex-wrap gap-2">
-            <span class="tech-badge">React</span>
-            <span class="tech-badge">TypeScript</span>
-            <span class="tech-badge">Java</span>
-            <span class="tech-badge">Spring Boot</span>
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-copy" id="heroCopy">
+          <div class="availability"><span class="availability-dot"></span> Software engineering graduate · Spring 2026</div>
+          <h1><span class="name-line">Hi, I’m</span><span class="name-line accent-name">Annie Huynh.</span></h1>
+          <p class="hero-subtitle">I build thoughtful, user-focused software with a love for clean interfaces, useful details, and making complex things feel simple.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">Explore my work <i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
+            <a class="button button-secondary" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noopener">Connect on LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main>
-  <!-- PROJECTS -->
-  <section id="projects" class="section reveal">
-    <div class="container">
-      <div class="mb-4">
-        <h2 class="fw-bold mb-2">Featured Projects</h2>
-        <p class="muted mb-0" style="max-width: 68ch;">
-          A few projects that show how I approach user-facing products,
-          application architecture, and full-stack development.
-        </p>
-      </div>
-
-      <div class="row g-4">
-        <div class="col-lg-6">
-          <article class="card-clean p-4">
-            <div
-              class="d-flex justify-content-between align-items-start gap-3 mb-3"
-            >
-              <div>
-                <div class="small text-uppercase muted mb-1">
-                  Senior Design Project
-                </div>
-                <h3 class="h4 fw-semibold mb-0">CourseFlow</h3>
-              </div>
-
-              <span class="tech-badge text-nowrap">
-                August 2025 – May 2026
-              </span>
-            </div>
-
-            <p class="muted mb-4">
-              A degree-planning application designed to make course
-              planning more intuitive for Iowa State students. Built a
-              React Native frontend with a Spring Boot backend and
-              PostgreSQL database, with features for prerequisite tracking,
-              course planning, scheduling, course information, and
-              authenticated student workflows.
-            </p>
-
-            <div class="d-flex flex-wrap gap-2 mb-4">
-              <span class="tech-badge">React Native</span>
-              <span class="tech-badge">Expo</span>
-              <span class="tech-badge">TypeScript</span>
-              <span class="tech-badge">Java</span>
-              <span class="tech-badge">Spring Boot</span>
-              <span class="tech-badge">PostgreSQL</span>
-              <span class="tech-badge">Spring Security</span>
-            </div>
-
-            <a
-              class="project-link"
-              href="https://github.com/annieh00/courseflow"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View on GitHub
-              <i class="bi bi-arrow-up-right"></i>
-            </a>
-          </article>
-        </div>
-
-        <div class="col-lg-6">
-          <article class="card-clean p-4">
-            <div
-              class="d-flex justify-content-between align-items-start gap-3 mb-3"
-            >
-              <div>
-                <div class="small text-uppercase muted mb-1">
-                  Android Application
-                </div>
-                <h3 class="h4 fw-semibold mb-0">CyMarket</h3>
-              </div>
-
-              <span class="tech-badge text-nowrap">
-                January 2024 – May 2024
-              </span>
-            </div>
-
-            <p class="muted mb-4">
-              A student-focused marketplace application for buying and
-              selling items within a college community, with listings,
-              search, item details, profiles, messaging, auctions, and
-              image functionality.
-            </p>
-
-            <div class="d-flex flex-wrap gap-2 mb-4">
-              <span class="tech-badge">Java</span>
-              <span class="tech-badge">Android</span>
-              <span class="tech-badge">Spring Boot</span>
-              <span class="tech-badge">REST APIs</span>
-              <span class="tech-badge">WebSockets</span>
-              <span class="tech-badge">MySQL</span>
-            </div>
-
-            <a
-              class="project-link"
-              href="https://github.com/annieh00/cymarket"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View on GitHub
-              <i class="bi bi-arrow-up-right"></i>
-            </a>
-          </article>
+        <div class="hero-bottom">
+          <span>Frontend · Full-stack · Product-minded</span>
+          <a class="scroll-cue" href="#work"><span><i class="bi bi-arrow-down" aria-hidden="true"></i></span> Scroll to explore</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section bg-light reveal">
-    <div class="container">
-      <div class="mb-4">
-        <h2 class="fw-bold mb-2">Experience</h2>
-        <p class="muted mb-0">
-          Professional and technical experience that shaped how I build
-          software.
-        </p>
-      </div>
+    <section class="section work-section" id="work">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Selected work</span>
+          <h2>Ideas, meet execution.</h2>
+          <p>A few projects where I brought interfaces, APIs, and real product needs together.</p>
+        </div>
 
-      <div class="row g-4">
-        <!-- Principal -->
-        <div class="col-12">
-          <article class="card-clean p-4 bg-white">
-            <div class="d-flex gap-3">
-              <div class="timeline-dot"></div>
-
-              <div class="flex-grow-1">
-                <div
-                  class="d-flex justify-content-between flex-wrap gap-2"
-                >
-                  <div>
-                    <h3 class="h5 fw-semibold mb-1">
-                      Software Engineering Intern
-                    </h3>
-                    <div class="muted">Principal Financial Group</div>
+        <div class="work-grid">
+          <article class="project-card reveal reveal-delay-1">
+            <div class="project-visual" aria-label="Illustration of a course planning application">
+              <div class="browser-window" aria-hidden="true">
+                <div class="browser-bar"><i></i><i></i><i></i></div>
+                <div class="mock-app">
+                  <div class="mock-sidebar">
+                    <div class="mock-logo"></div>
+                    <div class="mock-nav active"></div><div class="mock-nav"></div><div class="mock-nav"></div><div class="mock-nav"></div>
                   </div>
-
-                  <span class="tech-badge align-self-start">
-                    May 2025 – Aug 2025
-                  </span>
+                  <div class="mock-content">
+                    <div class="mock-title"></div><div class="mock-caption"></div>
+                    <div class="mock-courses">
+                      <div class="mock-course"></div><div class="mock-course"></div>
+                      <div class="mock-course"></div><div class="mock-course"></div>
+                    </div>
+                  </div>
                 </div>
-
-                <div class="divider my-3"></div>
-
-                <ul class="muted mb-0">
-                  <li>
-                    Developed production React and TypeScript features for
-                    the Case Management team.
-                  </li>
-                  <li>
-                    Integrated REST APIs to connect frontend workflows with
-                    backend services.
-                  </li>
-                  <li>
-                    Worked with AWS deployment workflows and contributed to
-                    production releases.
-                  </li>
-                  <li>
-                    Collaborated with engineers across U.S. and India-based
-                    teams in an Agile/Scrum environment.
-                  </li>
-                </ul>
               </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta"><span>Academic planning platform</span><span class="project-number">01 / 02</span></div>
+              <h3>CourseFlow</h3>
+              <p>A course-planning experience designed to help Iowa State students explore prerequisites, organize schedules, and navigate academic decisions in one place.</p>
+              <div class="tags"><span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span></div>
+              <a class="project-link" href="https://github.com/annieh00/courseflow" target="_blank" rel="noopener">View on GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-2">
+            <div class="project-visual market-visual" aria-label="Illustration of a student marketplace">
+              <div class="market-ui" aria-hidden="true">
+                <div class="market-top"><span class="market-logo">CyMarket</span><span class="market-search"></span></div>
+                <div class="market-items">
+                  <div class="market-item"><div class="market-thumb"></div><div class="market-line"></div><div class="market-line short"></div></div>
+                  <div class="market-item"><div class="market-thumb"></div><div class="market-line"></div><div class="market-line short"></div></div>
+                  <div class="market-item"><div class="market-thumb"></div><div class="market-line"></div><div class="market-line short"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta"><span>Student marketplace</span><span class="project-number">02 / 02</span></div>
+              <h3>CyMarket</h3>
+              <p>A student-focused marketplace concept for browsing listings, viewing item photos, and making it easier for campus communities to buy and sell.</p>
+              <div class="tags"><span class="tag">Android</span><span class="tag">Java</span><span class="tag">MySQL</span><span class="tag">UI Development</span></div>
+              <a class="project-link" href="https://github.com/annieh00/cymarket" target="_blank" rel="noopener">View on GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
             </div>
           </article>
         </div>
+      </div>
+    </section>
 
-        <!-- CPR -->
-        <div class="col-lg-6">
-          <article class="card-clean p-4 bg-white h-100">
-            <div
-              class="d-flex justify-content-between flex-wrap gap-2"
-            >
-              <div>
-                <h3 class="h5 fw-semibold mb-1">
-                  Cell Phone Repair Technician
-                </h3>
-                <div class="muted">CPR Cell Phone Repair</div>
-              </div>
-
-              <span class="tech-badge align-self-start">
-                Aug 2026 – Present
-              </span>
-            </div>
-
-            <div class="divider my-3"></div>
-
-            <p class="muted mb-0">
-              Diagnose and repair consumer devices while troubleshooting
-              hardware and software issues and communicating technical
-              problems clearly to customers.
-            </p>
-          </article>
+    <section class="section experience-section" id="experience">
+      <div class="container experience-layout">
+        <div class="experience-intro reveal">
+          <span class="eyebrow">Experience</span>
+          <div class="section-heading">
+            <h2>Built with people, for people.</h2>
+            <p>From shipping features on a product team to helping students work through code, I enjoy solving problems collaboratively.</p>
+          </div>
+          <a class="text-link" href="./AnnieHuynh_Resume.pdf" target="_blank" rel="noopener">Full experience on my resume <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
         </div>
 
-        <!-- Surplus -->
-        <div class="col-lg-6">
-          <article class="card-clean p-4 bg-white h-100">
-            <div
-              class="d-flex justify-content-between flex-wrap gap-2"
-            >
-              <div>
-                <h3 class="h5 fw-semibold mb-1">
-                  Surplus Technician
-                </h3>
-                <div class="muted">Iowa State University</div>
-              </div>
-
-              <span class="tech-badge align-self-start">
-                Dec 2025 – May 2026
-              </span>
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-date">May – Aug 2025</div>
+            <div>
+              <h3>Software Engineer Intern</h3>
+              <div class="timeline-company">Principal Financial Group · Case Management</div>
+              <p>Built React and TypeScript features for a production onboarding workflow, integrated UI components with REST APIs, and collaborated with U.S. and India teammates in an Agile environment.</p>
             </div>
-
-            <div class="divider my-3"></div>
-
-            <p class="muted mb-0">
-              Tested and prepared computers and monitors for surplus,
-              installed and updated Ubuntu systems, and handled basic
-              hardware and software troubleshooting.
-            </p>
           </article>
-        </div>
-
-        <!-- STEM Tutor -->
-        <div class="col-lg-6">
-          <article class="card-clean p-4 bg-white h-100">
-            <div
-              class="d-flex justify-content-between flex-wrap gap-2"
-            >
-              <div>
-                <h3 class="h5 fw-semibold mb-1">
-                  STEM Scholars Tutor
-                </h3>
-                <div class="muted">Iowa State University</div>
-              </div>
-
-              <span class="tech-badge align-self-start">
-                Mar 2024 – Jan 2026
-              </span>
+          <article class="timeline-item reveal">
+            <div class="timeline-date">Aug 2026 – Present</div>
+            <div>
+              <h3>Cell Phone Repair Technician / Sales Associate</h3>
+              <div class="timeline-company">CPR Cell Phone Repair</div>
+              <p>Diagnose device hardware and software issues, assist with repairs and component replacements, and help customers understand repair options.</p>
             </div>
-
-            <div class="divider my-3"></div>
-
-            <p class="muted mb-0">
-              Tutored Java and object-oriented programming, including
-              debugging, data structures, and core programming concepts.
-            </p>
           </article>
-        </div>
-
-        <!-- Research -->
-        <div class="col-lg-6">
-          <article class="card-clean p-4 bg-white h-100">
-            <div
-              class="d-flex justify-content-between flex-wrap gap-2"
-            >
-              <div>
-                <h3 class="h5 fw-semibold mb-1">
-                  Undergraduate Researcher
-                </h3>
-                <div class="muted">Iowa State University</div>
-              </div>
-
-              <span class="tech-badge align-self-start">
-                Aug 2023 – Dec 2023
-              </span>
+          <article class="timeline-item reveal">
+            <div class="timeline-date">Dec 2025 – May 2026</div>
+            <div>
+              <h3>Surplus Technician</h3>
+              <div class="timeline-company">Iowa State University</div>
+              <p>Tested laptops, desktops, and monitors; reset computers and installed or updated Ubuntu; and troubleshot basic hardware and software issues.</p>
             </div>
-
-            <div class="divider my-3"></div>
-
-            <p class="muted mb-0">
-              Worked on converting MATLAB workflows to Python for
-              cloud-based data processing and helped lead Python
-              workshops.
-            </p>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-date">Mar 2024 – Jan 2026</div>
+            <div>
+              <h3>Java / Object-Oriented Programming Tutor</h3>
+              <div class="timeline-company">Iowa State University · STEM Scholars</div>
+              <p>Helped students build confidence with Java, object-oriented programming, debugging, and core programming concepts through tutoring and review sessions.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-date">Aug – Dec 2023</div>
+            <div>
+              <h3>Undergraduate Research Assistant</h3>
+              <div class="timeline-company">Iowa State University</div>
+              <p>Assisted with weekly Python workshops, explaining programming concepts and helping participants complete hands-on exercises.</p>
+            </div>
           </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="section reveal">
-    <div class="container">
-      <div class="mb-4">
-        <h2 class="fw-bold mb-2">Skills</h2>
-        <p class="muted mb-0">
-          The technologies I use most often, organized around the kind of
-          work I want to do.
-        </p>
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Toolkit</span>
+          <h2>Curious by default.</h2>
+          <p>The tools I’ve used to build applications, work with data, and understand what happens under the hood.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-icon"><i class="bi bi-window-stack" aria-hidden="true"></i></div>
+            <h3>Frontend</h3>
+            <p>React, React Native, TypeScript, JavaScript, HTML, CSS, responsive UI development, and accessible interaction patterns.</p>
+          </article>
+          <article class="skill-card reveal reveal-delay-1">
+            <div class="skill-icon"><i class="bi bi-braces" aria-hidden="true"></i></div>
+            <h3>Backend & APIs</h3>
+            <p>Java, Spring Boot, REST APIs, SQL, PostgreSQL, MySQL, MongoDB, and application integration.</p>
+          </article>
+          <article class="skill-card reveal reveal-delay-2">
+            <div class="skill-icon"><i class="bi bi-terminal" aria-hidden="true"></i></div>
+            <h3>Systems & Tools</h3>
+            <p>Python, C, Assembly, Linux, Git, JUnit, Android Studio, VS Code, and introductory AWS deployment workflows.</p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-          <div class="card-clean p-4">
-            <div class="skill-group">
-              <h3>Frontend</h3>
-              <p class="mb-0">
-                React, React Native, TypeScript, JavaScript, HTML, CSS,
-                Expo
-              </p>
-            </div>
-          </div>
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-photo-wrap reveal">
+          <img class="about-photo" src="./pictures/IMG_5997.jpeg" alt="Portrait of Annie Huynh" loading="lazy" onerror="this.style.display='none'">
+          <p class="photo-caption">Software Engineering · Iowa State University</p>
         </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="card-clean p-4">
-            <div class="skill-group">
-              <h3>Backend</h3>
-              <p class="mb-0">
-                Java, Spring Boot, Spring Security, REST APIs, Node.js
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="card-clean p-4">
-            <div class="skill-group">
-              <h3>Data & Databases</h3>
-              <p class="mb-0">
-                PostgreSQL, MySQL, MongoDB, SQL, Python, pandas, NumPy
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="card-clean p-4">
-            <div class="skill-group">
-              <h3>Tools & Platforms</h3>
-              <p class="mb-0">
-                Git, GitHub, Linux, Ubuntu, AWS, JUnit, Android Studio,
-                VS Code
-              </p>
-            </div>
+        <div class="about-copy reveal reveal-delay-1">
+          <span class="eyebrow">A little about me</span>
+          <h2>I care about how software feels to use.</h2>
+          <p>I’m a Software Engineering graduate from Iowa State University with a minor in Cybersecurity. I’m especially drawn to frontend development because I enjoy turning ideas into clear, thoughtful interfaces, but I also like understanding the APIs and systems that make them work.</p>
+          <p>I value curiosity, practical problem-solving, and the little details that make a product feel cohesive. I’m always looking for opportunities to keep learning and build software that genuinely helps people.</p>
+          <div class="about-facts">
+            <span class="about-fact">Iowa State University · 2026</span>
+            <span class="about-fact">Software Engineering</span>
+            <span class="about-fact">Cybersecurity minor</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="section bg-light reveal">
-    <div class="container">
-      <div class="row g-5 align-items-start">
-        <div class="col-lg-7">
-          <h2 class="fw-bold mb-3">About Me</h2>
-
-          <p class="muted">
-            I'm a Software Engineering graduate from Iowa State University
-            with a minor in Cybersecurity. I especially enjoy frontend
-            development and building interfaces that feel intuitive and
-            easy to use.
-          </p>
-
-          <p class="muted">
-            My experience also spans backend development, APIs, databases,
-            cloud workflows, and mobile applications. I like understanding
-            how the pieces of an application fit together, even when I'm
-            working primarily on the frontend.
-          </p>
-
-          <p class="muted mb-0">
-            I'm looking for a full-time software engineering role where I
-            can contribute to real products, learn from experienced
-            engineers, and keep growing as a developer.
-          </p>
-        </div>
-
-        <div class="col-lg-5">
-          <div class="card-clean p-4 bg-white">
-            <div class="small text-uppercase muted mb-2">
-              Education
-            </div>
-
-            <h3 class="h5 fw-semibold mb-1">
-              Iowa State University
-            </h3>
-
-            <p class="muted mb-3">
-              B.S. Software Engineering • Minor in Cybersecurity
-            </p>
-
-            <div class="divider my-3"></div>
-
-            <div class="small text-uppercase muted mb-2">
-              Honors
-            </div>
-
-            <p class="muted mb-0">
-              ECSEL Scholar<br />
-              Roy J. Carver Scholar<br />
-              Dean's List
-            </p>
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="reveal">
+            <span class="eyebrow">Get in touch</span>
+            <h2>Have something good in mind?</h2>
+            <p>I’m interested in opportunities to build useful software, learn from a thoughtful team, and make a meaningful contribution.</p>
+          </div>
+          <div class="contact-actions reveal reveal-delay-1">
+            <a class="button button-primary" href="mailto:anniehuynh65@gmail.com">Email me <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            <a class="button button-secondary" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noopener">LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            <a class="button button-secondary" href="https://github.com/annieh00" target="_blank" rel="noopener">GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESUME -->
-  <section id="resume" class="section reveal">
-    <div class="container">
-      <div
-        class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4"
-      >
-        <div>
-          <h2 class="fw-bold mb-2">Resume</h2>
-          <p class="muted mb-0">
-            A quick view of my experience, education, and technical
-            background.
-          </p>
-        </div>
-
-        <a
-          class="btn btn-dark pill px-4"
-          href="./AnnieHuynh_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Open Resume
-          <i class="bi bi-arrow-up-right ms-1"></i>
-        </a>
-      </div>
-
-      <div class="card-clean p-2 bg-white">
-        <iframe
-          src="./AnnieHuynh_Resume.pdf"
-          title="Annie Huynh resume"
-          style="
-            width: 100%;
-            height: 720px;
-            border: 0;
-            border-radius: 1rem;
-          "
-        ></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section reveal">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-7">
-          <div
-            class="eyebrow text-dark border-dark border-opacity-10 mb-3"
-          >
-            Open to opportunities
+        <footer class="footer">
+          <span>© <span id="year"></span> Annie Huynh. Designed with intention.</span>
+          <div class="footer-links">
+            <a href="#top">Back to top ↑</a>
+            <a href="./AnnieHuynh_Resume.pdf" target="_blank" rel="noopener">Resume</a>
           </div>
-
-          <h2 class="fw-bold mb-2">
-            Let's build something useful.
-          </h2>
-
-          <p class="muted mb-0" style="max-width: 60ch;">
-            I'm currently looking for full-time software engineering
-            opportunities, especially frontend and full-stack roles.
-          </p>
-        </div>
-
-        <div class="col-lg-5">
-          <div class="card-clean p-4">
-            <div class="d-grid gap-2">
-              <a
-                class="btn btn-dark btn-lg pill"
-                href="mailto:anniehuynh65@gmail.com"
-              >
-                <i class="bi bi-envelope me-2"></i>
-                Email me
-              </a>
-
-              <a
-                class="btn btn-outline-dark btn-lg pill"
-                href="https://linkedin.com/in/anniehuynh4"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="bi bi-linkedin me-2"></i>
-                LinkedIn
-              </a>
-
-              <a
-                class="btn btn-outline-dark btn-lg pill"
-                href="https://github.com/annieh00"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="bi bi-github me-2"></i>
-                GitHub
-              </a>
-            </div>
-          </div>
-        </div>
+        </footer>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
-<footer class="py-4 divider">
-  <div
-    class="container d-flex flex-wrap justify-content-between align-items-center gap-2"
-  >
-    <span class="small muted">
-      © <span id="year"></span> Annie Huynh
-    </span>
+  <script>
+    const nav = document.getElementById('siteNav');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const heroCopy = document.getElementById('heroCopy');
 
-    <span class="small muted">Built with Bootstrap</span>
-  </div>
-</footer>
+    // Keep the navigation quiet until the page begins to move.
+    const updateNav = () => nav.classList.toggle('scrolled', window.scrollY > 18);
+    updateNav();
+    window.addEventListener('scroll', updateNav, { passive: true });
 
-<button id="backToTop" aria-label="Back to top">
-  <i class="bi bi-chevron-up"></i>
-</button>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-
-  document
-    .querySelectorAll(".reveal")
-    .forEach((element) => observer.observe(element));
-
-  const backToTop = document.getElementById("backToTop");
-
-  window.addEventListener("scroll", () => {
-    backToTop.classList.toggle("show", window.scrollY > 500);
-  });
-
-  backToTop.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  });
-
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const target = document.querySelector(
-        link.getAttribute("href")
-      );
-
-      if (!target) return;
-
-      event.preventDefault();
-
-      const navbar = document.querySelector(".navbar");
-      const offset = navbar
-        ? navbar.offsetHeight + 12
-        : 12;
-
-      const top =
-        target.getBoundingClientRect().top +
-        window.scrollY -
-        offset;
-
-      window.scrollTo({
-        top,
-        behavior: "smooth",
-      });
-
-      const menu = document.querySelector(
-        ".navbar-collapse.show"
-      );
-
-      if (menu) {
-        bootstrap.Collapse.getOrCreateInstance(menu).hide();
+    // Apple-inspired opening: the introduction gently recedes as the visitor scrolls.
+    let ticking = false;
+    const updateHero = () => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduceMotion && window.innerWidth > 620) {
+        const progress = Math.min(Math.max(window.scrollY / (window.innerHeight * 0.82), 0), 1);
+        heroCopy.style.opacity = String(1 - progress * 0.72);
+        heroCopy.style.transform = `translateY(${-progress * 42}px) scale(${1 - progress * 0.018})`;
+      } else {
+        heroCopy.style.opacity = '';
+        heroCopy.style.transform = '';
       }
-    });
-  });
-</script>
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHero);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateHero();
 
-</body> </html>
+    // Reveal sections as they enter the viewport.
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+      revealItems.forEach(item => observer.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add('visible'));
+    }
+
+    // Mobile navigation.
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      menuToggle.innerHTML = isOpen ? '<i class="bi bi-x-lg" aria-hidden="true"></i>' : '<i class="bi bi-list" aria-hidden="true"></i>';
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+        menuToggle.innerHTML = '<i class="bi bi-list" aria-hidden="true"></i>';
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
