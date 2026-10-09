@@ -174,6 +174,15 @@
     .reveal-delay-2 { transition-delay: .16s; }
     .reveal-delay-3 { transition-delay: .24s; }
 
+    /* skill card */
+    .skill-card {
+  min-width: 0;
+}
+
+.skill-card p {
+  overflow-wrap: anywhere;
+}
+    
     /* Selected work */
     .work-section { background: #fff; border-top: 1px solid rgba(20,20,20,.04); }
     .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
@@ -230,6 +239,31 @@
     .tag { display: inline-flex; padding: 7px 10px; border-radius: 999px; background: #f0f1f4; color: #555762; font-size: .75rem; font-weight: 600; }
     .project-link { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; font-weight: 700; }
     .project-link:hover { color: var(--accent); }
+    
+.project-details {
+  padding-left: 19px;
+  margin: 0 0 20px;
+  color: #555762;
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.project-details li + li {
+  margin-top: 5px;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.project-note {
+  color: #777880;
+  font-size: .8rem;
+  line-height: 1.6;
+  margin-top: 17px;
+}
 
     /* Experience */
     .experience-section { background: var(--paper); }
@@ -246,11 +280,48 @@
     /* Skills */
     .skills-section { background: #fff; }
     .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-    .skill-card { padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
-    .skill-icon { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 14px; background: var(--accent-soft); color: var(--accent); font-size: 1.1rem; margin-bottom: 22px; }
-    .skill-card h3 { margin: 0 0 12px; font: 700 1.1rem "Manrope", sans-serif; letter-spacing: -.03em; }
-    .skill-card p { color: var(--muted); line-height: 1.8; font-size: .92rem; margin: 0; }
 
+
+    
+.skill-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fafaf9;
+  transition: transform .25s ease, box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: rgba(56, 89, 215, .22);
+}
+
+.skill-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 22px;
+  border-radius: 13px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.skill-card h3 {
+  margin: 0 0 12px;
+  font: 700 1.15rem "Manrope", sans-serif;
+  letter-spacing: -.03em;
+}
+
+.skill-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .93rem;
+  line-height: 1.8;
+}
     /* About and contact */
     .about-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 70px; align-items: start; }
     .about-photo-wrap { max-width: 330px; }
@@ -350,6 +421,7 @@
       <div class="nav-links" id="navLinks">
         <a href="#work">Work</a>
         <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
         <a href="#about">About</a>
         <a href="./AnnieHuynh_Resume.pdf" target="_blank" rel="noopener">Resume <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
         <a class="nav-contact" href="#contact">Let's talk <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
@@ -358,31 +430,22 @@
   </header>
 
   <main>
-    <section class="hero" id="top">
-      <div class="container hero-inner">
-        <div class="hero-copy" id="heroCopy">
-          <div class="availability"><span class="availability-dot"></span> Software engineering graduate · Spring 2026</div>
-          <h1><span class="name-line">Hi, I’m</span><span class="name-line accent-name">Annie Huynh.</span></h1>
-          <p class="hero-subtitle">I build thoughtful, user-focused software with a love for clean interfaces, useful details, and making complex things feel simple.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#work">Explore my work <i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
-            <a class="button button-secondary" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noopener">Connect on LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
-          </div>
-        </div>
-        <div class="hero-bottom">
-          <span>Frontend · Full-stack · Product-minded</span>
-          <a class="scroll-cue" href="#work"><span><i class="bi bi-arrow-down" aria-hidden="true"></i></span> Scroll to explore</a>
-        </div>
-      </div>
-    </section>
+<section class="hero" id="top"> <div class="container hero-inner"> <div class="hero-copy" id="heroCopy"> <div class="availability"> <span class="availability-dot"></span> Software Engineering Graduate · Spring 2026 </div> <h1> <span class="name-line">Hi, I’m</span> <span class="name-line accent-name">Annie Huynh.</span> </h1> <p class="hero-subtitle"> I’m a <strong>frontend-focused Software Engineer</strong> who builds thoughtful, user-friendly interfaces with React and TypeScript, backed by experience with Java, Spring Boot, and REST APIs. </p> <div class="hero-actions"> <a class="button button-primary" href="#work"> Explore my work <i class="bi bi-arrow-down-right" aria-hidden="true"></i> </a> <a class="button button-secondary" href="./AnnieHuynh_Resume.pdf" target="_blank" rel="noopener"> View resume <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> </a> <a class="button button-secondary" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noopener"> LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i> </a> </div> </div> <div class="hero-bottom"> <span>React · TypeScript · Java · Spring Boot</span> <a class="scroll-cue" href="#work"> <span><i class="bi bi-arrow-down" aria-hidden="true"></i></span> Scroll to explore </a> </div> </div> </section>
 
     <section class="section work-section" id="work">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">Selected work</span>
-          <h2>Ideas, meet execution.</h2>
-          <p>A few projects where I brought interfaces, APIs, and real product needs together.</p>
-        </div>
+        
+<div class="section-heading reveal">
+  <span class="eyebrow">Selected work</span>
+  <h2>Thoughtful products. Practical engineering.</h2>
+  <p>
+    Projects that bring together user-facing experiences, application
+    logic, and data. Each one reflects a different part of how I
+    approach building software.
+  </p>
+</div>
+
+
 
         <div class="work-grid">
           <article class="project-card reveal reveal-delay-1">
@@ -404,13 +467,7 @@
                 </div>
               </div>
             </div>
-            <div class="project-info">
-              <div class="project-meta"><span>Academic planning platform</span><span class="project-number">01 / 02</span></div>
-              <h3>CourseFlow</h3>
-              <p>A course-planning experience designed to help Iowa State students explore prerequisites, organize schedules, and navigate academic decisions in one place.</p>
-              <div class="tags"><span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span></div>
-              <a class="project-link" href="https://github.com/annieh00/courseflow" target="_blank" rel="noopener">View on GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
-            </div>
+<div class="project-info"> <div class="project-meta"> <span>Full-stack academic planning</span> <span class="project-number">01 / 02</span> </div> <h3>CourseFlow</h3> <p> A course-planning application designed to help Iowa State students explore prerequisites and make more informed academic decisions in one place. </p> <ul class="project-details"> <li> Built the application interface with React Native, Expo, and TypeScript. </li> <li> Developed the backend with Java 17 and Spring Boot, backed by PostgreSQL. </li> <li> Worked on academic planning features, prerequisite relationships, and application authentication. </li> </ul> <div class="tags"> <span class="tag">React Native</span> <span class="tag">Expo</span> <span class="tag">TypeScript</span> <span class="tag">Java 17</span> <span class="tag">Spring Boot</span> <span class="tag">PostgreSQL</span> </div> <div class="project-links"> <a class="project-link" href="https://github.com/annieh00/courseflow" target="_blank" rel="noopener"> View source on GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i> </a> </div> </div>
           </article>
 
           <article class="project-card reveal reveal-delay-2">
@@ -424,13 +481,7 @@
                 </div>
               </div>
             </div>
-            <div class="project-info">
-              <div class="project-meta"><span>Student marketplace</span><span class="project-number">02 / 02</span></div>
-              <h3>CyMarket</h3>
-              <p>A student-focused marketplace concept for browsing listings, viewing item photos, and making it easier for campus communities to buy and sell.</p>
-              <div class="tags"><span class="tag">Android</span><span class="tag">Java</span><span class="tag">MySQL</span><span class="tag">UI Development</span></div>
-              <a class="project-link" href="https://github.com/annieh00/cymarket" target="_blank" rel="noopener">View on GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
-            </div>
+<div class="project-info"> <div class="project-meta"> <span>Student marketplace</span> <span class="project-number">02 / 02</span> </div> <h3>CyMarket</h3> <p> A student marketplace concept focused on browsing listings, viewing item photos, and making it easier for campus communities to buy and sell. </p> <ul class="project-details"> <li> Focused on frontend development for marketplace posts and listing views. </li> <li> Worked with a MySQL database as part of the project. </li> <li> Contributed to the interface for browsing and viewing marketplace items. </li> </ul> <div class="tags"> <span class="tag">Java</span> <span class="tag">Android Studio</span> <span class="tag">MySQL</span> <span class="tag">UI Development</span> </div> <div class="project-links"> <a class="project-link" href="https://github.com/annieh00/cymarket" target="_blank" rel="noopener"> View source on GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i> </a> </div> <p class="project-note"> My contribution focused on frontend development. See the repository for the implementation and project structure. </p> </div>
           </article>
         </div>
       </div>
@@ -453,16 +504,14 @@
             <div>
               <h3>Software Engineer Intern</h3>
               <div class="timeline-company">Principal Financial Group · Case Management</div>
-              <p>Built React and TypeScript features for a production onboarding workflow, integrated UI components with REST APIs, and collaborated with U.S. and India teammates in an Agile environment.</p>
-            </div>
+<p> Built production onboarding-workflow features using React and TypeScript, including interactive components such as buttons, modals, and date inputs. Integrated frontend components with REST APIs, worked with deployment workflows, and collaborated with teammates in the U.S. and India using Agile practices. </p>            </div>
           </article>
           <article class="timeline-item reveal">
             <div class="timeline-date">Aug 2026 – Present</div>
             <div>
               <h3>Cell Phone Repair Technician / Sales Associate</h3>
               <div class="timeline-company">CPR Cell Phone Repair</div>
-              <p>Diagnose device hardware and software issues, assist with repairs and component replacements, and help customers understand repair options.</p>
-            </div>
+<p> Diagnose device hardware and software issues, assist with repairs and component replacements, and explain repair options to customers. Strengthen hands-on troubleshooting and customer communication skills in a customer-facing role. </p>            </div>
           </article>
           <article class="timeline-item reveal">
             <div class="timeline-date">Dec 2025 – May 2026</div>
@@ -500,21 +549,40 @@
           <p>The tools I’ve used to build applications, work with data, and understand what happens under the hood.</p>
         </div>
         <div class="skills-grid">
-          <article class="skill-card reveal">
-            <div class="skill-icon"><i class="bi bi-window-stack" aria-hidden="true"></i></div>
-            <h3>Frontend</h3>
-            <p>React, React Native, TypeScript, JavaScript, HTML, CSS, responsive UI development, and accessible interaction patterns.</p>
-          </article>
-          <article class="skill-card reveal reveal-delay-1">
-            <div class="skill-icon"><i class="bi bi-braces" aria-hidden="true"></i></div>
-            <h3>Backend & APIs</h3>
-            <p>Java, Spring Boot, REST APIs, SQL, PostgreSQL, MySQL, MongoDB, and application integration.</p>
-          </article>
-          <article class="skill-card reveal reveal-delay-2">
-            <div class="skill-icon"><i class="bi bi-terminal" aria-hidden="true"></i></div>
-            <h3>Systems & Tools</h3>
-            <p>Python, C, Assembly, Linux, Git, JUnit, Android Studio, VS Code, and introductory AWS deployment workflows.</p>
-          </article>
+      <article class="skill-card reveal">
+        <div class="skill-icon">
+          <i class="bi bi-window-stack" aria-hidden="true"></i>
+        </div>
+        <h3>Frontend Development</h3>
+        <p>
+          React, React Native, TypeScript, JavaScript, HTML, CSS,
+          responsive interfaces, reusable components, and
+          user-focused interaction design.
+        </p>
+      </article>
+
+      <article class="skill-card reveal reveal-delay-1">
+        <div class="skill-icon">
+          <i class="bi bi-braces" aria-hidden="true"></i>
+        </div>
+        <h3>Backend & Data</h3>
+        <p>
+          Java, Spring Boot, REST APIs, SQL, PostgreSQL, MySQL,
+          MongoDB, and application integration.
+        </p>
+      </article>
+
+      <article class="skill-card reveal reveal-delay-2">
+        <div class="skill-icon">
+          <i class="bi bi-terminal" aria-hidden="true"></i>
+        </div>
+        <h3>Tools & Systems</h3>
+        <p>
+          Git, Linux, Ubuntu, Python, C, JUnit, Android Studio,
+          VS Code, and introductory AWS deployment workflows.
+        </p>
+      </article>
+
         </div>
       </div>
     </section>
@@ -528,8 +596,9 @@
         <div class="about-copy reveal reveal-delay-1">
           <span class="eyebrow">A little about me</span>
           <h2>I care about how software feels to use.</h2>
-          <p>I’m a Software Engineering graduate from Iowa State University with a minor in Cybersecurity. I’m especially drawn to frontend development because I enjoy turning ideas into clear, thoughtful interfaces, but I also like understanding the APIs and systems that make them work.</p>
-          <p>I value curiosity, practical problem-solving, and the little details that make a product feel cohesive. I’m always looking for opportunities to keep learning and build software that genuinely helps people.</p>
+          <p>I’m a Spring 2026 Software Engineering graduate from Iowa State University with a minor in Cybersecurity. I’m especially interested in frontend development, where I can combine problem-solving with building intuitive, polished user experiences. My experience with React, TypeScript, and API integration has also helped me understand how the frontend connects to the systems behind it.</p>
+
+<p>I enjoy making interfaces feel clear and cohesive, thinking through how people will actually use a product, and refining the details that make software easier to navigate. I’m looking for an entry-level software engineering role where I can contribute to meaningful products, learn from experienced developers, and continue growing as an engineer.</p>
           <div class="about-facts">
             <span class="about-fact">Iowa State University · 2026</span>
             <span class="about-fact">Software Engineering</span>
@@ -542,11 +611,17 @@
     <section class="contact-section" id="contact">
       <div class="container">
         <div class="contact-panel">
-          <div class="reveal">
-            <span class="eyebrow">Get in touch</span>
-            <h2>Have something good in mind?</h2>
-            <p>I’m interested in opportunities to build useful software, learn from a thoughtful team, and make a meaningful contribution.</p>
-          </div>
+          
+      <div class="reveal">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Let’s build something useful.</h2>
+        <p>
+          I’m interested in entry-level software engineering roles
+          where I can contribute to a product, learn from a strong team,
+          and keep growing as an engineer.
+        </p>
+      </div>
+
           <div class="contact-actions reveal reveal-delay-1">
             <a class="button button-primary" href="mailto:anniehuynh65@gmail.com">Email me <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
             <a class="button button-secondary" href="https://linkedin.com/in/anniehuynh4" target="_blank" rel="noopener">LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
